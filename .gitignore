@@ -124,4 +124,7 @@ buck-out/
 .chalice/deployments/
 .chalice/venv/
 
-venv/
+venv
+
+sample
+react-native-material-ui-demo-app
