@@ -123,3 +123,5 @@ buck-out/
 # Chalice
 .chalice/deployments/
 .chalice/venv/
+
+venv/
