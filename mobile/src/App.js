@@ -28,11 +28,15 @@ import { Provider } from 'react-redux';
 
 import store from './redux/store';
 import Base from './containers/Base';
+// import Layout from './containers/Layout';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Base />
+      <ThemeContext.Provider value={getTheme(uiTheme)}>
+        <Base />
+        {/* <Layout /> */}
+      </ThemeContext.Provider>
     </Provider>
   );
 };
