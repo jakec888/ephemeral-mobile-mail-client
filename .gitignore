@@ -127,4 +127,15 @@ buck-out/
 venv
 
 sample
-react-native-material-ui-demo-app
+
+
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+web-report/
