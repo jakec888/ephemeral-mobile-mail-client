@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://a4-rqv.anonymous.mobile.exp.direct",
+  "packagerNgrokUrl": "https://packager.a4-rqv.anonymous.mobile.exp.direct",
+  "ngrokPid": 8440
 }

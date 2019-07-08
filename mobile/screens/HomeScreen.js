@@ -36,8 +36,6 @@ class HomeScreen extends Component {
           <View style={styles.getStartedContainer}>
             <DevelopmentModeNotice />
 
-            <Text style={styles.getStartedText}>{this.props.sample}</Text>
-
             <Text style={styles.getStartedText}>Get started by opening</Text>
 
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
@@ -202,9 +200,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = (state) => ({
-  sample: state.Sample.sample
-});
+const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = {};
 
