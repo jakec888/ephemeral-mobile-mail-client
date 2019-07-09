@@ -141,3 +141,14 @@ web-build/
 web-report/
 
 package-lock.json
+
+example1/
+example2/
+example3/
+
+mobile(save1)/
+mobile(save2)/
+mobile(save3)/
+
+
+redux-example/
