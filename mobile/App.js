@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import Router from './navigation/router';
+import AppNavigation from './navigation/AppNavigation';
+import { Provider } from 'react-redux';
 
-class App extends Component {
+import store from './redux/store';
+
+// export default function App() {
+//   return <DrawerNavigator />;
+// }
+
+export default class App extends Component {
   render() {
-    return <Router />;
+    return (
+      <Provider store={store}>
+        <AppNavigation />
+      </Provider>
+    );
   }
 }
-export default App;
