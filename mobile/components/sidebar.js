@@ -7,7 +7,7 @@ const CustomeSideBar = (props) => (
   <ScrollView>
     <SafeAreaView
       style={styles.container}
-      forceInset={{ top: 'always', horizontal: 'never' }}
+      // forceInset={{ top: 'always', horizontal: 'never' }}
     >
       <Container>
         <Image
@@ -36,10 +36,11 @@ const CustomeSideBar = (props) => (
               'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png'
           }}
         />
+        {/* <DrawerItems {...props} /> */}
       </Container>
-      {/* <Container> */}
-      <DrawerItems {...props} />
-      {/* </Container> */}
+      <Container>
+        <DrawerItems {...props} />
+      </Container>
     </SafeAreaView>
   </ScrollView>
 );
