@@ -1,9 +1,9 @@
 import { createDrawerNavigator, createAppContainer } from 'react-navigation';
-// import { AllMailScreen, HomeScreen, InboxScreen } from '../screens';
+import { AllMailScreen, HomeScreen, InboxScreen } from '../screens';
 
-import HomeScreen from '../screens/HomeScreen';
-import AllMailScreen from '../screens/AllMailScreen';
-import InboxScreen from '../screens/InboxScreen';
+// import HomeScreen from '../screens/HomeScreen';
+// import AllMailScreen from '../screens/AllMailScreen';
+// import InboxScreen from '../screens/InboxScreen';
 
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {

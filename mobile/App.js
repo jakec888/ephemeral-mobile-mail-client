@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import AppNavigation from './navigation/AppNavigation';
 import { Provider } from 'react-redux';
-
 import store from './redux/store';
-
-// export default function App() {
-//   return <DrawerNavigator />;
-// }
 
 export default class App extends Component {
   render() {

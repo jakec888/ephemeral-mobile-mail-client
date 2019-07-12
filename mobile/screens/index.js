@@ -1,5 +1,3 @@
-// import AllMailScreen from './AllMailScreen';
-// import HomeScreen from './HomeScreen';
-// import InboxScreen from './InboxScreen';
-
-// export default { AllMailScreen, HomeScreen, InboxScreen };
+export * from './AllMailScreen';
+export * from './HomeScreen';
+export * from './InboxScreen';
