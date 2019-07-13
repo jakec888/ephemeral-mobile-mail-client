@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { createDrawerNavigator, createAppContainer } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
 
 import AllMailStackNavigator from '../screens/AllMail/AllMailStackNavigator';
 import HomeStackNavigator from '../screens/Home/HomeStackNavigator';
@@ -10,87 +11,24 @@ const MyDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: HomeStackNavigator,
     navigationOptions: {
-      drawerLabel: 'Home'
+      drawerLabel: 'Home',
+      drawerIcon: <Ionicons name="md-home" size={24} color="#3f51b5" />
     }
   },
   AllMail: {
     screen: AllMailStackNavigator,
     navigationOptions: {
-      drawerLabel: 'All Mail'
+      drawerLabel: 'All Mail',
+      drawerIcon: <Ionicons name="md-mail-open" size={24} color="#3f51b5" />
     }
   },
   Inbox: {
     screen: InboxStackNavigator,
     navigationOptions: {
-      drawerLabel: 'Inbox'
+      drawerLabel: 'Inbox',
+      drawerIcon: <Ionicons name="md-mail-unread" size={24} color="#3f51b5" />
     }
   }
 });
 
 export default createAppContainer(MyDrawerNavigator);
-
-/////////////////////////////////////////////////////////////////
-
-// import { createDrawerNavigator, createAppContainer } from 'react-navigation';
-// import AllMailStackNavigator from '../screens/AllMail/AllMailStackNavigator';
-// import HomeStackNavigator from '../screens/Home/HomeStackNavigator';
-// import InboxStackNavigator from '../screens/Inbox/InboxStackNavigator';
-
-// // import CustomeSideBar from '../components/sidebar';
-
-// const MyDrawerNavigator = createDrawerNavigator(
-//   {
-//     Home: {
-//       screen: HomeStackNavigator,
-//       navigationOptions: {
-//         drawerLabel: 'Home Screen'
-//       }
-//     },
-//     AllMail: {
-//       screen: AllMailStackNavigator,
-//       navigationOptions: {
-//         drawerLabel: 'All Mail Screen'
-//       }
-//     },
-//     Inbox: {
-//       screen: InboxStackNavigator,
-//       navigationOptions: {
-//         drawerLabel: 'Inbox Screen'
-//       }
-//     }
-//   }
-//   // {
-//   //   contentComponent: CustomeSideBar
-//   // }
-// );
-
-// const AppNavigation = createAppContainer(MyDrawerNavigator);
-
-// export default AppNavigation;
-
-///////////////////////////////////////////////
-
-// import { createDrawerNavigator, createAppContainer } from 'react-navigation';
-// import { AllMailScreen, HomeScreen, InboxScreen } from '../screens';
-// import CustomeSideBar from '../components/sidebar';
-
-// const MyDrawerNavigator = createDrawerNavigator(
-//   {
-//     Home: {
-//       screen: HomeScreen
-//     },
-//     AllMail: {
-//       screen: AllMailScreen
-//     },
-//     Inbox: {
-//       screen: InboxScreen
-//     }
-//   },
-//   {
-//     contentComponent: CustomeSideBar
-//   }
-// );
-
-// const AppNavigation = createAppContainer(MyDrawerNavigator);
-
-// export default AppNavigation;
