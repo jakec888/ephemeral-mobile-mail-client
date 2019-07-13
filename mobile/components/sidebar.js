@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { DrawerItems, SafeAreaView } from 'react-navigation';
 import { Image, StyleSheet, ScrollView } from 'react-native';
-import { Container } from 'native-base';
 
 const CustomeSideBar = (props) => (
   <ScrollView>

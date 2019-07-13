@@ -1,3 +1,3 @@
-export * from './AllMailScreen';
-export * from './HomeScreen';
-export * from './InboxScreen';
+export * from './AllMailScreen/AllMailScreen';
+export * from './Home/HomeScreen';
+export * from './Inbox/InboxScreen';
