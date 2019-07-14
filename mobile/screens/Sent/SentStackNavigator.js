@@ -2,13 +2,13 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
 import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
-import AllMailScreen from './AllMailScreen';
+import SentScreen from './SentScreen';
 
-const AllMailStackNavigator = createStackNavigator({
+const SentStackNavigator = createStackNavigator({
   AllMail: {
-    screen: AllMailScreen,
+    screen: SentScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'All Mail',
+      title: 'Sent Email',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#3f51b5'
@@ -18,4 +18,4 @@ const AllMailStackNavigator = createStackNavigator({
   }
 });
 
-export default AllMailStackNavigator;
+export default SentStackNavigator;

@@ -2,13 +2,13 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
 import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
-import AllMailScreen from './AllMailScreen';
+import CredentialsScreen from './CredentialsScreen';
 
-const AllMailStackNavigator = createStackNavigator({
+const CredentialsNavigator = createStackNavigator({
   AllMail: {
-    screen: AllMailScreen,
+    screen: CredentialsScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'All Mail',
+      title: 'Credentials',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#3f51b5'
@@ -18,4 +18,4 @@ const AllMailStackNavigator = createStackNavigator({
   }
 });
 
-export default AllMailStackNavigator;
+export default CredentialsNavigator;
