@@ -1,23 +1,38 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
+import { Container, Content, Form, Item, Input, Label } from 'native-base';
 
 export class CredentialsScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Credentials!</Text>
-      </View>
+      <Container>
+        <Content style={styles.container}>
+          <Form>
+            <Item floatingLabel style={styles.input}>
+              <Label style={styles.label}>Username</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel style={styles.input}>
+              <Label style={styles.label}>Password</Label>
+              <Input />
+            </Item>
+          </Form>
+        </Content>
+      </Container>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    width: '95%'
+  },
+  input: {
+    borderColor: '#3f51b5'
+  },
+  label: {
+    color: '#3f51b5'
   }
 });
 

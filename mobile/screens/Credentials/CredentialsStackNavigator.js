@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
 import CredentialsScreen from './CredentialsScreen';
 
-const CredentialsNavigator = createStackNavigator({
+const CredentialsStackNavigator = createStackNavigator({
   AllMail: {
     screen: CredentialsScreen,
     navigationOptions: ({ navigation }) => ({
@@ -18,4 +18,4 @@ const CredentialsNavigator = createStackNavigator({
   }
 });
 
-export default CredentialsNavigator;
+export default CredentialsStackNavigator;

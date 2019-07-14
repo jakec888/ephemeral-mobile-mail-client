@@ -9,8 +9,17 @@ import InboxStackNavigator from '../screens/Inbox/InboxStackNavigator';
 import ComposeStackNavigator from '../screens/Compose/ComposeStackNavigator';
 import TrashStackNavigator from '../screens/Trash/TrashStackNavigator';
 
+import CredentialsStackNavigator from '../screens/Credentials/CredentialsStackNavigator';
+
 const MyDrawerNavigator = createDrawerNavigator(
   {
+    Credentials: {
+      screen: CredentialsStackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Credentials'
+        // drawerIcon: <Ionicons name="md-mail-open" size={24} color="#3f51b5" />
+      }
+    },
     Inbox: {
       screen: InboxStackNavigator,
       navigationOptions: {
