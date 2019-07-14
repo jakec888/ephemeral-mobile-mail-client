@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { createDrawerNavigator, createAppContainer } from 'react-navigation';
+import {
+  createDrawerNavigator,
+  createAppContainer,
+  createStackNavigator,
+  createSwitchNavigator
+} from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 
 import AllMailStackNavigator from '../screens/AllMail/AllMailStackNavigator';
@@ -11,22 +16,14 @@ import TrashStackNavigator from '../screens/Trash/TrashStackNavigator';
 
 import CredentialsStackNavigator from '../screens/Credentials/CredentialsStackNavigator';
 
-const MyDrawerNavigator = createDrawerNavigator(
+const CredNavigator = createStackNavigator({
+  Credentials: {
+    screen: CredentialsStackNavigator
+  }
+});
+
+const AppDrawerNavigator = createDrawerNavigator(
   {
-    // Credentials: {
-    //   screen: CredentialsStackNavigator,
-    //   navigationOptions: {
-    //     drawerLabel: 'Credentials'
-    //     // drawerIcon: <Ionicons name="md-mail-open" size={24} color="#3f51b5" />
-    //   }
-    // },
-    ComposeMail: {
-      screen: ComposeStackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Compose Emails',
-        drawerIcon: <Ionicons name="md-mail-open" size={24} color="#3f51b5" />
-      }
-    },
     Inbox: {
       screen: InboxStackNavigator,
       navigationOptions: {
@@ -73,4 +70,14 @@ const MyDrawerNavigator = createDrawerNavigator(
   }
 );
 
-export default createAppContainer(MyDrawerNavigator);
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      Cred: CredNavigator,
+      App: AppDrawerNavigator
+    },
+    {
+      initialRouteName: 'Cred'
+    }
+  )
+);
