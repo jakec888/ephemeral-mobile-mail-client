@@ -16,12 +16,6 @@ import TrashStackNavigator from '../screens/Trash/TrashStackNavigator';
 
 import CredentialsStackNavigator from '../screens/Credentials/CredentialsStackNavigator';
 
-const CredNavigator = createStackNavigator({
-  Credentials: {
-    screen: CredentialsStackNavigator
-  }
-});
-
 const AppDrawerNavigator = createDrawerNavigator(
   {
     Inbox: {
@@ -73,7 +67,7 @@ const AppDrawerNavigator = createDrawerNavigator(
 export default createAppContainer(
   createSwitchNavigator(
     {
-      Cred: CredNavigator,
+      Cred: CredentialsStackNavigator,
       App: AppDrawerNavigator
     },
     {
