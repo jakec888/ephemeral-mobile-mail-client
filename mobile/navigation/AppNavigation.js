@@ -13,11 +13,18 @@ import CredentialsStackNavigator from '../screens/Credentials/CredentialsStackNa
 
 const MyDrawerNavigator = createDrawerNavigator(
   {
-    Credentials: {
-      screen: CredentialsStackNavigator,
+    // Credentials: {
+    //   screen: CredentialsStackNavigator,
+    //   navigationOptions: {
+    //     drawerLabel: 'Credentials'
+    //     // drawerIcon: <Ionicons name="md-mail-open" size={24} color="#3f51b5" />
+    //   }
+    // },
+    ComposeMail: {
+      screen: ComposeStackNavigator,
       navigationOptions: {
-        drawerLabel: 'Credentials'
-        // drawerIcon: <Ionicons name="md-mail-open" size={24} color="#3f51b5" />
+        drawerLabel: 'Compose Emails',
+        drawerIcon: <Ionicons name="md-mail-open" size={24} color="#3f51b5" />
       }
     },
     Inbox: {

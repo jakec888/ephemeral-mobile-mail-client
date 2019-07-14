@@ -95,6 +95,7 @@ export class CredentialsScreen extends Component {
                 primary
                 full
                 bordered
+                rounded
                 style={styles.button}
                 onPress={this.onSubmitUserData}
               >
@@ -122,7 +123,6 @@ const styles = StyleSheet.create({
     margin: '5%'
   },
   button: {
-    // margin: '10%',
     borderColor: '#3f51b5',
     color: '#3f51b5',
     alignSelf: 'center',
