@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Item, Input, Label } from 'native-base';
 
@@ -10,11 +10,31 @@ export class CredentialsScreen extends Component {
         <Content style={styles.container}>
           <Form>
             <Item floatingLabel style={styles.input}>
-              <Label style={styles.label}>Username</Label>
+              <Label style={styles.label}>Name</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel style={styles.input}>
+              <Label style={styles.label}>Email</Label>
               <Input />
             </Item>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>Password</Label>
+              <Input secureTextEntry={true} />
+            </Item>
+            <Item floatingLabel style={styles.input}>
+              <Label style={styles.label}>IMAP Server</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel style={styles.input}>
+              <Label style={styles.label}>IMAP Port</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel style={styles.input}>
+              <Label style={styles.label}>SMTP Server</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel style={styles.input}>
+              <Label style={styles.label}>SMTP Port</Label>
               <Input />
             </Item>
           </Form>
