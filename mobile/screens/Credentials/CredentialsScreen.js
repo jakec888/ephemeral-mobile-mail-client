@@ -11,31 +11,31 @@ export class CredentialsScreen extends Component {
           <Form>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>Name</Label>
-              <Input />
+              <Input autoCapitalize="none" />
             </Item>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>Email</Label>
-              <Input />
+              <Input autoCapitalize="none" />
             </Item>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>Password</Label>
-              <Input secureTextEntry={true} />
+              <Input secureTextEntry={true} autoCapitalize="none" />
             </Item>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>IMAP Server</Label>
-              <Input />
+              <Input autoCapitalize="none" />
             </Item>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>IMAP Port</Label>
-              <Input />
+              <Input autoCapitalize="none" />
             </Item>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>SMTP Server</Label>
-              <Input />
+              <Input autoCapitalize="none" />
             </Item>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>SMTP Port</Label>
-              <Input />
+              <Input autoCapitalize="none" />
             </Item>
           </Form>
         </Content>
