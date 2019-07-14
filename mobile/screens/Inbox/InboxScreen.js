@@ -4,15 +4,7 @@ import { connect } from 'react-redux';
 
 export class InboxScreen extends Component {
   componentDidMount = () => {
-    if (this.props.validCredentials) {
-      console.log('Valid!');
-      // this.onRetrieveInbox();
-    } else {
-      // this.props.history.push('/');
-
-      // this.props.navigation.navigate('Auth');
-      this.props.navigation.navigate('Cred');
-    }
+    this.props.validCredentials !== true && this.props.navigation.navigate('Cred');
   };
 
   render() {

@@ -16,6 +16,10 @@ import {
 import composeEmailActions from '../../redux/actions/composeEmail.action';
 
 export class ComposeScreen extends Component {
+  componentDidMount = () => {
+    this.props.validCredentials !== true && this.props.navigation.navigate('Cred');
+  };
+
   onChangeToAddress = (text) => {
     this.props.updateToAddress(text);
   };

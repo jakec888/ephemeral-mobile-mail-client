@@ -3,6 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 
 export class ViewEmailScreen extends Component {
+  componentDidMount = () => {
+    this.props.validCredentials !== true && this.props.navigation.navigate('Cred');
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -21,7 +25,9 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  validCredentials: state.Profile.validCredentials
+});
 
 const mapDispatchToProps = {};
 
