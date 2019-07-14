@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Content, Form, Item, Input, Label } from 'native-base';
+import {
+  Container,
+  Content,
+  Form,
+  Item,
+  Input,
+  Label,
+  Button,
+  Text
+} from 'native-base';
 
 import userActions from '../../redux/actions/user.actions';
 
 export class CredentialsScreen extends Component {
+  // Be sure to add form submit
+
   onChangeName = (text) => {
     this.props.updateName(text);
   };
@@ -32,6 +43,14 @@ export class CredentialsScreen extends Component {
 
   onChangeSMTPPort = (text) => {
     this.props.updateSMTPPort(text);
+  };
+
+  onSubmitUserData = (event) => {
+    console.log('working');
+    console.log(event);
+    // event.preventDefault();
+    // this.props.authenticateUser();
+    // this.props.history.push('/inbox');
   };
 
   render() {
@@ -71,6 +90,17 @@ export class CredentialsScreen extends Component {
               <Label style={styles.label}>SMTP Port</Label>
               <Input autoCapitalize="none" onChangeText={this.onChangeSMTPPort} />
             </Item>
+            <View style={styles.buttonContainer}>
+              <Button
+                primary
+                full
+                bordered
+                style={styles.button}
+                onPress={this.onSubmitUserData}
+              >
+                <Text style={styles.buttonText}>Submit</Text>
+              </Button>
+            </View>
           </Form>
         </Content>
       </Container>
@@ -86,6 +116,19 @@ const styles = StyleSheet.create({
     borderColor: '#3f51b5'
   },
   label: {
+    color: '#3f51b5'
+  },
+  buttonContainer: {
+    margin: '5%'
+  },
+  button: {
+    // margin: '10%',
+    borderColor: '#3f51b5',
+    color: '#3f51b5',
+    alignSelf: 'center',
+    width: '50%'
+  },
+  buttonText: {
     color: '#3f51b5'
   }
 });
