@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { StyleSheet, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Spinner, List, ListItem, Body, Right, Text } from 'native-base';
+import { Container, Spinner, ListItem, Body, Right, Text } from 'native-base';
 
 import moment from 'moment';
 
@@ -27,8 +27,9 @@ export class InboxScreen extends Component {
     this.props.selectEmail(emailId);
   };
 
-  email = ({ id, subject, name, body_plain, date }) => {
-    const emailDate = new Date(date);
+  // email = ({ id, subject, name, body_plain, date }) => {
+  email = ({ item }) => {
+    const emailDate = new Date(item.date);
 
     const calendar = moment(emailDate).format('ll');
 
@@ -39,12 +40,13 @@ export class InboxScreen extends Component {
       .fromNow();
 
     return (
-      <ListItem avatar key={id}>
+      <ListItem avatar>
+        {/* key={id} */}
         <Body>
-          <Text style={styles.hOneStyle}>{name}</Text>
-          <Text style={styles.hTwoStyle}>{subject}</Text>
+          <Text style={styles.hOneStyle}>{item.name}</Text>
+          <Text style={styles.hTwoStyle}>{item.subject}</Text>
           <Text note>
-            {body_plain ? ' — ' + body_plain.substring(0, 50) + '...' : false}
+            {item.body_plain ? ' — ' + item.body_plain.substring(0, 50) + '...' : false}
           </Text>
         </Body>
         <Right style={styles.dateStyle}>
@@ -66,15 +68,19 @@ export class InboxScreen extends Component {
             <Text>Retrieving Inbox...</Text>
           </View>
         ) : (
-          <List>
+          <Fragment>
             {this.props.inboxEmails ? (
-              this.props.inboxEmails.map((email) => this.email(email))
+              <FlatList
+                data={this.props.inboxEmails}
+                renderItem={this.email}
+                keyExtractor={(item) => item.id}
+              />
             ) : (
               <View style={styles.spinnerContainer}>
                 <Text>No Inbox Emails</Text>
               </View>
             )}
-          </List>
+          </Fragment>
         )}
       </Container>
     );
