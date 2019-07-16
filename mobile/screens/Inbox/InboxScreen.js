@@ -23,11 +23,11 @@ export class InboxScreen extends Component {
     await this.props.loadingEmail(false);
   };
 
-  onSelectEmail = (emailId) => {
+  onSelectEmail = (emailId, name) => {
     this.props.selectEmail(emailId);
+    this.props.navigation.navigate('View', { emailName: name });
   };
 
-  // email = ({ id, subject, name, body_plain, date }) => {
   email = ({ item }) => {
     const emailDate = new Date(item.date);
 
@@ -40,8 +40,12 @@ export class InboxScreen extends Component {
       .fromNow();
 
     return (
-      <ListItem avatar>
-        {/* key={id} */}
+      <ListItem
+        avatar
+        onPress={() => {
+          this.onSelectEmail(item.id, item.name);
+        }}
+      >
         <Body>
           <Text style={styles.hOneStyle}>{item.name}</Text>
           <Text style={styles.hTwoStyle}>{item.subject}</Text>
