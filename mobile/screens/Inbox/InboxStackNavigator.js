@@ -33,6 +33,9 @@ const InboxStackNavigator = createStackNavigator({
           date={navigation.state.params.emailDate}
         />
       ),
+      headerRightContainerStyle: {
+        marginRight: 10
+      },
       headerStyle: {
         backgroundColor: '#3f51b5'
       },
