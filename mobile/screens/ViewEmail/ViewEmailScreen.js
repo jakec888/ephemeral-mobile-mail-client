@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import {
+  Container,
+  // Header,
+  // Title,
+  Content,
+  // Footer,
+  // FooterTab,
+  // Button,
+  Left,
+  Right,
+  // Body,
+  // Icon,
+  Text,
+  H1
+  // H2,
+  // H3
+} from 'native-base';
+
+import moment from 'moment';
 
 export class ViewEmailScreen extends Component {
   componentDidMount = () => {
@@ -8,10 +27,29 @@ export class ViewEmailScreen extends Component {
   };
 
   render() {
+    const date = new Date(this.props.selectedEmail.date);
+
+    const calendar = moment(date).format('ll');
+
+    const time = moment(date).format('LT');
+
+    const when = moment(date)
+      .startOf('hour')
+      .fromNow();
+
     return (
-      <View style={styles.container}>
-        <Text>View Email!</Text>
-      </View>
+      <Container style={styles.container}>
+        <H1>{this.props.selectedEmail.subject}</H1>
+        <Content>
+          <Left>
+            <Text>{this.props.selectedEmail.name}</Text>
+            <Text>{this.props.selectedEmail.email}</Text>
+          </Left>
+          <Right>
+            <Text>{`${calendar} at ${time} (${when})`}</Text>
+          </Right>
+        </Content>
+      </Container>
     );
   }
 }
@@ -19,14 +57,13 @@ export class ViewEmailScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: '#fff'
   }
 });
 
 const mapStateToProps = (state) => ({
-  validCredentials: state.Profile.validCredentials
+  validCredentials: state.Profile.validCredentials,
+  selectedEmail: state.SelectedEmail
 });
 
 const mapDispatchToProps = {};
