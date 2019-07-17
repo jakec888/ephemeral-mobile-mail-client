@@ -23,9 +23,14 @@ export class InboxScreen extends Component {
     await this.props.loadingEmail(false);
   };
 
-  onSelectEmail = (emailId, name) => {
+  onSelectEmail = (emailId, name, email, subject, date) => {
     this.props.selectEmail(emailId);
-    this.props.navigation.navigate('View', { emailName: name });
+    this.props.navigation.navigate('View', {
+      emailName: name,
+      emailEmail: email,
+      emailSubject: subject,
+      emailDate: date
+    });
   };
 
   email = ({ item }) => {
@@ -43,7 +48,7 @@ export class InboxScreen extends Component {
       <ListItem
         avatar
         onPress={() => {
-          this.onSelectEmail(item.id, item.name);
+          this.onSelectEmail(item.id, item.name, item.email, item.subject, item.date);
         }}
       >
         <Body>

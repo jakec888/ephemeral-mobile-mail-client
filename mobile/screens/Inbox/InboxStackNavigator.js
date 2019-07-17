@@ -4,6 +4,11 @@ import { createStackNavigator } from 'react-navigation';
 import InboxScreen from './InboxScreen';
 import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
 
+import EmailInfo from '../../components/emailInfo';
+const working = () => {
+  alert('Working');
+};
+
 const InboxStackNavigator = createStackNavigator({
   Inbox: {
     screen: InboxScreen,
@@ -20,7 +25,14 @@ const InboxStackNavigator = createStackNavigator({
     screen: ViewEmailScreen,
     navigationOptions: ({ navigation }) => ({
       title: navigation.state.params.emailName,
-      // headerLeft: ,
+      headerRight: (
+        <EmailInfo
+          name={navigation.state.params.emailName}
+          email={navigation.state.params.emailEmail}
+          subject={navigation.state.params.emailSubject}
+          date={navigation.state.params.emailDate}
+        />
+      ),
       headerStyle: {
         backgroundColor: '#3f51b5'
       },
