@@ -20,7 +20,7 @@ const InboxStackNavigator = createStackNavigator({
     screen: ViewEmailScreen,
     navigationOptions: ({ navigation }) => ({
       title: navigation.state.params.emailName,
-      // headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      // headerLeft: ,
       headerStyle: {
         backgroundColor: '#3f51b5'
       },
