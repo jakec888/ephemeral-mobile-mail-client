@@ -80,7 +80,7 @@ export class SentScreen extends Component {
         {this.props.loading ? (
           <View style={styles.spinnerContainer}>
             <Spinner color="#3f51b5" />
-            <Text>Retrieving Sent Emails...</Text>
+            <Text>Retrieving Sent...</Text>
           </View>
         ) : (
           <Fragment>
