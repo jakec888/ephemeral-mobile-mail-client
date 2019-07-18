@@ -12,7 +12,7 @@ const InboxStackNavigator = createStackNavigator({
   Inbox: {
     screen: InboxScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Inbox',
+      title: 'Inbox Folder',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#3f51b5'

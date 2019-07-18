@@ -1,7 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Spinner, ListItem, Body, Right, Text } from 'native-base';
+import {
+  Container,
+  Spinner,
+  // List,
+  ListItem,
+  View,
+  Body,
+  Right,
+  Text
+} from 'native-base';
 
 import moment from 'moment';
 
@@ -33,8 +42,14 @@ export class InboxScreen extends Component {
     });
   };
 
-  email = ({ item }) => {
+  emailView = ({ item }) => {
+    console.log(item);
+
+    console.log(item.date);
+
     const emailDate = new Date(item.date);
+
+    console.log(emailDate);
 
     const calendar = moment(emailDate).format('ll');
 
@@ -81,12 +96,12 @@ export class InboxScreen extends Component {
             {this.props.inboxEmails ? (
               <FlatList
                 data={this.props.inboxEmails}
-                renderItem={this.email}
+                renderItem={this.emailView}
                 keyExtractor={(item) => item.id}
               />
             ) : (
               <View style={styles.spinnerContainer}>
-                <Text>No Inbox Emails</Text>
+                <Text>No Emails</Text>
               </View>
             )}
           </Fragment>

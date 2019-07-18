@@ -1,42 +1,15 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
-import AllMailScreen from './AllMailScreen';
-import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
-
 import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
+import AllMailScreen from './AllMailScreen';
 
-import EmailInfo from '../../components/emailInfo';
-
-const AllMailStackNavigator = createStackNavigator({
+const TrashStackNavigator = createStackNavigator({
   AllMail: {
     screen: AllMailScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'All Mail',
+      title: 'All Emails Folder',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerBackAllowFontScaling: true,
-      headerStyle: {
-        backgroundColor: '#3f51b5'
-      },
-      headerTintColor: '#fff'
-    })
-  },
-  View: {
-    screen: ViewEmailScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: navigation.state.params.emailName,
-      headerRight: (
-        <EmailInfo
-          name={navigation.state.params.emailName}
-          email={navigation.state.params.emailEmail}
-          subject={navigation.state.params.emailSubject}
-          date={navigation.state.params.emailDate}
-        />
-      ),
-      headerBackAllowFontScaling: true,
-      headerRightContainerStyle: {
-        marginRight: 10
-      },
       headerStyle: {
         backgroundColor: '#3f51b5'
       },
@@ -45,4 +18,4 @@ const AllMailStackNavigator = createStackNavigator({
   }
 });
 
-export default AllMailStackNavigator;
+export default TrashStackNavigator;

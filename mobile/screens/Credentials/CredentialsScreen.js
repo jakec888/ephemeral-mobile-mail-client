@@ -46,7 +46,6 @@ export class CredentialsScreen extends Component {
   };
 
   onSubmitUserData = (event) => {
-    console.log('working');
     // console.log(event);
     // event.preventDefault();
     this.props.authenticateUser();

@@ -60,6 +60,8 @@ const retrieveEmailActions = {
           });
         })
         .catch((err) => {
+          console.log('Error');
+          console.log(err);
           dispatch({
             type: retrieveEmailActions.SEND_EMAIL,
             payload: err
