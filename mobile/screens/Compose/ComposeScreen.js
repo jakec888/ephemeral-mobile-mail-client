@@ -46,11 +46,19 @@ export class ComposeScreen extends Component {
           <Form>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>To</Label>
-              <Input autoCapitalize="none" onChangeText={this.onChangeToAddress} />
+              <Input
+                autoCapitalize="none"
+                value={this.props.currentTo}
+                onChangeText={this.onChangeToAddress}
+              />
             </Item>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>Subject</Label>
-              <Input autoCapitalize="none" onChangeText={this.onChangeSubject} />
+              <Input
+                autoCapitalize="none"
+                value={this.props.currentSubject}
+                onChangeText={this.onChangeSubject}
+              />
             </Item>
             <Item style={styles.input}>
               <Textarea
@@ -60,6 +68,7 @@ export class ComposeScreen extends Component {
                 placeholder="Message Here!"
                 placeholderTextColor="#3f51b5"
                 style={styles.TextAreaText}
+                value={this.props.currentMessage}
                 onChangeText={this.onChangeMessage}
               />
             </Item>
@@ -70,7 +79,7 @@ export class ComposeScreen extends Component {
                 bordered
                 rounded
                 style={styles.buttonDelete}
-                onPress={this.onTrashMessage}
+                onPress={this.props.onTrashMessage}
               >
                 <Text style={styles.buttonTextDelete}>Delete</Text>
               </Button>
