@@ -3,7 +3,6 @@ import React from 'react';
 import {
   createDrawerNavigator,
   createAppContainer,
-  createStackNavigator,
   createSwitchNavigator
 } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';

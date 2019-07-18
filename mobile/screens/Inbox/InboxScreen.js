@@ -1,16 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import {
-  Container,
-  Spinner,
-  // List,
-  ListItem,
-  View,
-  Body,
-  Right,
-  Text
-} from 'native-base';
+import { Container, Spinner, ListItem, View, Body, Right, Text } from 'native-base';
 
 import moment from 'moment';
 

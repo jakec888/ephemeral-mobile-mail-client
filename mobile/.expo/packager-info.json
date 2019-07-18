@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://72-hed.jj888.mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.72-hed.jj888.mobile.exp.direct",
-  "ngrokPid": 20314
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
