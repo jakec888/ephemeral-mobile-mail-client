@@ -4,17 +4,16 @@ import { createStackNavigator } from 'react-navigation';
 import InboxScreen from './InboxScreen';
 import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
 
+import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
+
 import EmailInfo from '../../components/emailInfo';
-const working = () => {
-  alert('Working');
-};
 
 const InboxStackNavigator = createStackNavigator({
   Inbox: {
     screen: InboxScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Inbox',
-      headerBackAllowFontScaling: true,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#3f51b5'
       },
@@ -33,6 +32,7 @@ const InboxStackNavigator = createStackNavigator({
           date={navigation.state.params.emailDate}
         />
       ),
+      headerBackAllowFontScaling: true,
       headerRightContainerStyle: {
         marginRight: 10
       },

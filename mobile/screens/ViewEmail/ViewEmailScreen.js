@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, WebView } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Content, Text, H1 } from 'native-base';
+import { Container, Content, Text } from 'native-base';
 
 export class ViewEmailScreen extends Component {
   componentDidMount = () => {
@@ -11,7 +11,6 @@ export class ViewEmailScreen extends Component {
   render() {
     return (
       <Container>
-        <H1 style={styles.title}>{this.props.selectedEmail.subject}</H1>
         {this.props.selectedEmail.body_html ? (
           <Content contentContainerStyle={{ flex: 1 }}>
             <WebView
