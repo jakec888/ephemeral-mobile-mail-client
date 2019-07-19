@@ -7,6 +7,7 @@ const composeEmailActions = {
   TRASH_MESSAGE: 'TRASH_MESSAGE',
   SEND_MESSAGE: 'SEND_MESSAGE',
   ERROR_SEND_MESSAGE: 'ERROR_SEND_MESSAGE',
+  LOADING: 'LOADING',
   updateTo: (toAddress) => {
     return (dispatch) => {
       dispatch({
@@ -45,6 +46,12 @@ const composeEmailActions = {
   },
   sendMessage: () => {
     return (dispatch, getState) => {
+      dispatch({
+        type: composeEmailActions.LOADING,
+        payload: {
+          loading: true
+        }
+      });
       const profile = getState().Profile;
       const email = getState().ComposeEmail;
       API.post('/send-email', {
@@ -65,7 +72,8 @@ const composeEmailActions = {
               to: '',
               subject: '',
               message: '',
-              error: ''
+              error: '',
+              loading: false
             }
           });
           alert('Email Successfully Sent');
@@ -76,7 +84,8 @@ const composeEmailActions = {
             payload: {
               to: email.to,
               subject: email.subject,
-              message: email.message
+              message: email.message,
+              loading: false
             }
           });
           alert('Email Was Not Send');

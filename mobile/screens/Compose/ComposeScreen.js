@@ -3,14 +3,15 @@ import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import {
   Container,
-  Content,
+  // Content,
   Form,
   Item,
   Input,
   Label,
   Button,
   Text,
-  Textarea
+  Textarea,
+  Spinner
 } from 'native-base';
 
 import composeEmailActions from '../../redux/actions/composeEmail.action';
@@ -36,13 +37,18 @@ export class ComposeScreen extends Component {
     console.log('working');
     console.log(event);
     // event.preventDefault();
-    // this.props.onSendMessage();
+    this.props.onSendMessage();
   };
 
   render() {
     return (
-      <Container>
-        <Content style={styles.container}>
+      <Container style={styles.container}>
+        {this.props.loading ? (
+          <View style={styles.spinnerContainer}>
+            <Spinner color="#3f51b5" />
+            <Text>Sending Email...</Text>
+          </View>
+        ) : (
           <Form>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>To</Label>
@@ -95,7 +101,7 @@ export class ComposeScreen extends Component {
               </Button>
             </View>
           </Form>
-        </Content>
+        )}
       </Container>
     );
   }
@@ -133,6 +139,11 @@ const styles = StyleSheet.create({
   },
   buttonTextSend: {
     color: '#3f51b5'
+  },
+  spinnerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
@@ -141,7 +152,8 @@ const mapStateToProps = (state) => ({
   currentTo: state.ComposeEmail.to,
   currentSubject: state.ComposeEmail.subject,
   currentMessage: state.ComposeEmail.message,
-  emailError: state.ComposeEmail.error
+  emailError: state.ComposeEmail.error,
+  loading: state.ComposeEmail.loading
 });
 
 const mapDispatchToProps = {

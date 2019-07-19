@@ -3,7 +3,8 @@ import composeEmailActions from '../actions/composeEmail.action';
 const initialState = {
   to: '',
   subject: '',
-  message: ''
+  message: '',
+  loading: false
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -25,10 +26,13 @@ export default (state = initialState, { type, payload }) => {
       return {
         to: payload.message,
         subject: payload.subject,
-        message: payload.message
+        message: payload.message,
+        loading: payload.loading
       };
     case composeEmailActions.ERROR_SEND_MESSAGE:
       return { ...state };
+    case composeEmailActions.LOADING:
+      return { ...state, loading: payload.loading };
     default:
       return state;
   }
