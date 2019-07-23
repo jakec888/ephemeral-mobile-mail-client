@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
+import { H3 } from 'native-base';
+
 import AllMailScreen from './AllMailScreen';
 import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
 
@@ -12,7 +14,21 @@ const AllMailStackNavigator = createStackNavigator({
   AllMail: {
     screen: AllMailScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'All EMail Folder',
+      // title: 'All EMail Folder',
+      headerTitle: (
+        <H3
+          style={{
+            height: 'auto',
+            alignSelf: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            fontWeight: 'bold',
+            color: 'white'
+          }}
+        >
+          All EMail Folder
+        </H3>
+      ),
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#3f51b5'
@@ -23,7 +39,21 @@ const AllMailStackNavigator = createStackNavigator({
   View: {
     screen: ViewEmailScreen,
     navigationOptions: ({ navigation }) => ({
-      title: navigation.state.params.emailName,
+      // title: navigation.state.params.emailName,
+      headerTitle: (
+        <H3
+          style={{
+            height: 'auto',
+            alignSelf: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            fontWeight: 'bold',
+            color: 'white'
+          }}
+        >
+          {navigation.state.params.emailName}
+        </H3>
+      ),
       headerRight: (
         <EmailInfo
           name={navigation.state.params.emailName}
