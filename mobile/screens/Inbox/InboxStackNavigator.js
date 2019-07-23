@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
+import { Text } from 'native-base';
+
 import InboxScreen from './InboxScreen';
 import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
 
@@ -12,7 +14,19 @@ const InboxStackNavigator = createStackNavigator({
   Inbox: {
     screen: InboxScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Inbox Folder',
+      headerTitle: (
+        <Text
+          style={{
+            height: 'auth',
+            alignSelf: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            color: 'white'
+          }}
+        >
+          Inbox Folder
+        </Text>
+      ),
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#3f51b5'
