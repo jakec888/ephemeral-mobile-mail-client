@@ -11,11 +11,6 @@ const EmailInfo = (props) => {
 
     const time = moment(emailDate).format('LT');
 
-    // const when = moment(emailDate)
-    //   .startOf('hour')
-    //   .fromNow();
-    // \n (${when})
-
     Alert.alert(
       `${props.subject}`,
       `${props.name} \n ${props.email} \n ${calendar} \n at \n ${time} `

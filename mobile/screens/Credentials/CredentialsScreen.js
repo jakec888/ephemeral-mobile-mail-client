@@ -46,10 +46,7 @@ export class CredentialsScreen extends Component {
   };
 
   onSubmitUserData = (event) => {
-    // console.log(event);
-    // event.preventDefault();
     this.props.authenticateUser();
-    // this.props.history.push('/inbox');
     this.props.navigation.navigate('App');
   };
 

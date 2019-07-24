@@ -34,9 +34,6 @@ export class ComposeScreen extends Component {
   };
 
   onSendEmail = (event) => {
-    console.log('working');
-    console.log(event);
-    // event.preventDefault();
     this.props.onSendMessage();
   };
 

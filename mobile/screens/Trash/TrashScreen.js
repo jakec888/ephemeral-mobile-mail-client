@@ -34,21 +34,11 @@ export class TrashScreen extends Component {
   };
 
   emailView = ({ item }) => {
-    console.log(item);
-
-    console.log(item.date);
-
     const emailDate = new Date(item.date);
-
-    console.log(emailDate);
 
     const calendar = moment(emailDate).format('ll');
 
     const time = moment(emailDate).format('LT');
-
-    const when = moment(emailDate)
-      .startOf('hour')
-      .fromNow();
 
     return (
       <ListItem
@@ -68,7 +58,6 @@ export class TrashScreen extends Component {
           <Text note>{calendar}</Text>
           <Text note>at</Text>
           <Text note>{time}</Text>
-          <Text note>({when})</Text>
         </Right>
       </ListItem>
     );
