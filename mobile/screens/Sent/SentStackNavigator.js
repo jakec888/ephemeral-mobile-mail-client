@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
+import { Text } from 'native-base';
+
 import SentScreen from './SentScreen';
 import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
 
@@ -12,7 +14,20 @@ const SentStackNavigator = createStackNavigator({
   Sent: {
     screen: SentScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Sent Folder',
+      headerTitle: (
+        <Text
+          style={{
+            height: 'auto',
+            alignSelf: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            fontWeight: 'bold',
+            color: 'white'
+          }}
+        >
+          Sent Folder
+        </Text>
+      ),
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#3f51b5'
@@ -23,7 +38,20 @@ const SentStackNavigator = createStackNavigator({
   View: {
     screen: ViewEmailScreen,
     navigationOptions: ({ navigation }) => ({
-      title: navigation.state.params.emailName,
+      headerTitle: (
+        <Text
+          style={{
+            height: 'auto',
+            alignSelf: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            fontWeight: 'bold',
+            color: 'white'
+          }}
+        >
+          {navigation.state.params.emailName}
+        </Text>
+      ),
       headerRight: (
         <EmailInfo
           name={navigation.state.params.emailName}

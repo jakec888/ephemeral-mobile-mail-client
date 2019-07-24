@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
+import { Text } from 'native-base';
+
 import TrashScreen from './TrashScreen';
 import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
 
@@ -12,7 +14,20 @@ const TrashStackNavigator = createStackNavigator({
   Trash: {
     screen: TrashScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Trash Folder',
+      headerTitle: (
+        <Text
+          style={{
+            height: 'auto',
+            alignSelf: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            fontWeight: 'bold',
+            color: 'white'
+          }}
+        >
+          Trash Folders
+        </Text>
+      ),
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#3f51b5'
@@ -23,7 +38,20 @@ const TrashStackNavigator = createStackNavigator({
   View: {
     screen: ViewEmailScreen,
     navigationOptions: ({ navigation }) => ({
-      title: navigation.state.params.emailName,
+      headerTitle: (
+        <Text
+          style={{
+            height: 'auto',
+            alignSelf: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            fontWeight: 'bold',
+            color: 'white'
+          }}
+        >
+          {navigation.state.params.emailName}
+        </Text>
+      ),
       headerRight: (
         <EmailInfo
           name={navigation.state.params.emailName}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
-import { H3 } from 'native-base';
+import { Text } from 'native-base';
 
 import CredentialsScreen from './CredentialsScreen';
 
@@ -9,20 +9,21 @@ const CredentialsStackNavigator = createStackNavigator({
   AllMail: {
     screen: CredentialsScreen,
     navigationOptions: ({ navigation }) => ({
-      // title: 'Log In',
       headerTitle: (
-        <H3
+        <Text
           style={{
-            height: 'auto',
-            alignSelf: 'center',
-            marginLeft: 'auto',
-            marginRight: 'auto',
+            // height: 'auto',
+            // alignSelf: 'center',
+            // marginLeft: 'auto',
+            // marginRight: 'auto',
+            flex: 1,
+            textAlign: 'center',
             fontWeight: 'bold',
             color: 'white'
           }}
         >
           Login
-        </H3>
+        </Text>
       ),
       headerStyle: {
         backgroundColor: '#3f51b5'

@@ -17,10 +17,13 @@ const InboxStackNavigator = createStackNavigator({
       headerTitle: (
         <Text
           style={{
-            height: 'auth',
-            alignSelf: 'center',
-            marginLeft: 'auto',
-            marginRight: 'auto',
+            // height: 'auto',
+            // alignSelf: 'center',
+            // marginLeft: 'auto',
+            // marginRight: 'auto',
+            flex: 1,
+            textAlign: 'center',
+            fontWeight: 'bold',
             color: 'white'
           }}
         >

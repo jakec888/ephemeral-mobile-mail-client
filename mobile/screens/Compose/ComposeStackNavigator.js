@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
-import { H3 } from 'native-base';
+import { Text } from 'native-base';
 
 import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
 import ComposeScreen from './ComposeScreen';
@@ -10,9 +10,8 @@ const ComposeNavigator = createStackNavigator({
   AllMail: {
     screen: ComposeScreen,
     navigationOptions: ({ navigation }) => ({
-      // title: 'Compose Email',
       headerTitle: (
-        <H3
+        <Text
           style={{
             height: 'auto',
             alignSelf: 'center',
@@ -23,7 +22,7 @@ const ComposeNavigator = createStackNavigator({
           }}
         >
           Compose Email
-        </H3>
+        </Text>
       ),
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
