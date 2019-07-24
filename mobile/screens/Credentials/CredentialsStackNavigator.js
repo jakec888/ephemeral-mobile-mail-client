@@ -12,10 +12,6 @@ const CredentialsStackNavigator = createStackNavigator({
       headerTitle: (
         <Text
           style={{
-            // height: 'auto',
-            // alignSelf: 'center',
-            // marginLeft: 'auto',
-            // marginRight: 'auto',
             flex: 1,
             textAlign: 'center',
             fontWeight: 'bold',

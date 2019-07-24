@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 
 import { Text } from 'native-base';
@@ -17,10 +18,6 @@ const InboxStackNavigator = createStackNavigator({
       headerTitle: (
         <Text
           style={{
-            // height: 'auto',
-            // alignSelf: 'center',
-            // marginLeft: 'auto',
-            // marginRight: 'auto',
             flex: 1,
             textAlign: 'center',
             fontWeight: 'bold',
@@ -30,7 +27,12 @@ const InboxStackNavigator = createStackNavigator({
           Inbox Folder
         </Text>
       ),
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      ...Platform.select({
+        ios: {
+          headerLeft: <NavigationDrawerStructure navigationProps={navigation} />
+        },
+        android: {}
+      }),
       headerStyle: {
         backgroundColor: '#3f51b5'
       },

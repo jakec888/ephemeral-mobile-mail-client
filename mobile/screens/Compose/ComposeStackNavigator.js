@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
+import { Platform } from 'react-native';
 
 import { Text } from 'native-base';
 
@@ -13,10 +14,8 @@ const ComposeNavigator = createStackNavigator({
       headerTitle: (
         <Text
           style={{
-            height: 'auto',
-            alignSelf: 'center',
-            marginLeft: 'auto',
-            marginRight: 'auto',
+            flex: 1,
+            textAlign: 'center',
             fontWeight: 'bold',
             color: 'white'
           }}
@@ -24,7 +23,12 @@ const ComposeNavigator = createStackNavigator({
           Compose Email
         </Text>
       ),
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      ...Platform.select({
+        ios: {
+          headerLeft: <NavigationDrawerStructure navigationProps={navigation} />
+        },
+        android: {}
+      }),
       headerStyle: {
         backgroundColor: '#3f51b5'
       },
