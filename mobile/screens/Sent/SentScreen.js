@@ -66,23 +66,31 @@ export class SentScreen extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        {this.props.loading ? (
+        {this.props.error ? (
           <View style={styles.spinnerContainer}>
-            <Spinner color="#3f51b5" />
-            <Text>Retrieving Sent...</Text>
+            <Text>Please Limit To Folders With Less Than 25 Emails</Text>
           </View>
         ) : (
           <Fragment>
-            {this.props.sentEmails ? (
-              <FlatList
-                data={this.props.sentEmails}
-                renderItem={this.emailView}
-                keyExtractor={(item) => item.id}
-              />
-            ) : (
+            {this.props.loading ? (
               <View style={styles.spinnerContainer}>
-                <Text>No Emails</Text>
+                <Spinner color="#3f51b5" />
+                <Text>Retrieving Sent...</Text>
               </View>
+            ) : (
+              <Fragment>
+                {this.props.sentEmails ? (
+                  <FlatList
+                    data={this.props.sentEmails}
+                    renderItem={this.emailView}
+                    keyExtractor={(item) => item.id}
+                  />
+                ) : (
+                  <View style={styles.spinnerContainer}>
+                    <Text>No Emails</Text>
+                  </View>
+                )}
+              </Fragment>
             )}
           </Fragment>
         )}
@@ -118,7 +126,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => ({
   validCredentials: state.Profile.validCredentials,
   sentEmails: state.RetrieveEmails.emails,
-  loading: state.RetrieveEmails.loading
+  loading: state.RetrieveEmails.loading,
+  error: state.RetrieveEmails.error
 });
 
 const mapDispatchToProps = {

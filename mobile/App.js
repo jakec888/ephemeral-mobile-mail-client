@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import { AppLoading } from 'expo';
-
 import { FontAwesome } from '@expo/vector-icons';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
-
 import { Image } from 'react-native';
 import { Provider } from 'react-redux';
+
 import store from './redux/store';
 
 import AppNavigation from './navigation/AppNavigation';

@@ -8,7 +8,7 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case retrieveEmailActions.GET_EMAILS:
-      return { ...state, emails: payload };
+      return { ...state, emails: payload.emails, error: payload.error };
     case retrieveEmailActions.SEND_EMAIL:
       return { ...state, sent: payload };
     case retrieveEmailActions.LOADING_EMAIL:

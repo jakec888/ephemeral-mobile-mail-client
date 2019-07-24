@@ -27,13 +27,14 @@ const retrieveEmailActions = {
         .then((result) => {
           dispatch({
             type: retrieveEmailActions.GET_EMAILS,
-            payload: result.data.emails
+            payload: { emails: result.data.emails, error: false }
           });
         })
         .catch((err) => {
+          alert('Please Limit To Folders With Less Than 25 Emails');
           dispatch({
             type: retrieveEmailActions.GET_EMAILS,
-            payload: `Error: ${err}`
+            payload: { error: true, errorMessage: `${err}` }
           });
         });
     };
