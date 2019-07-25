@@ -23,6 +23,10 @@ export class InboxScreen extends Component {
     await this.props.loadingEmail(false);
   };
 
+  onRefresh = async () => {
+    await this.onRetrieveInbox();
+  };
+
   onSelectEmail = (emailId, name, email, subject, date) => {
     this.props.selectEmail(emailId);
     this.props.navigation.navigate('View', {
@@ -84,6 +88,8 @@ export class InboxScreen extends Component {
                     data={this.props.inboxEmails}
                     renderItem={this.emailView}
                     keyExtractor={(item) => item.id}
+                    refreshing={this.props.loading}
+                    onRefresh={this.onRefresh}
                   />
                 ) : (
                   <View style={styles.spinnerContainer}>

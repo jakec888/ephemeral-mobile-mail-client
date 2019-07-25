@@ -23,6 +23,10 @@ export class SentScreen extends Component {
     await this.props.loadingEmail(false);
   };
 
+  onRefresh = async () => {
+    await this.onRetrieveSent();
+  };
+
   onSelectEmail = (emailId, name, email, subject, date) => {
     this.props.selectEmail(emailId);
     this.props.navigation.navigate('View', {
@@ -84,6 +88,8 @@ export class SentScreen extends Component {
                     data={this.props.sentEmails}
                     renderItem={this.emailView}
                     keyExtractor={(item) => item.id}
+                    refreshing={this.props.loading}
+                    onRefresh={this.onRefresh}
                   />
                 ) : (
                   <View style={styles.spinnerContainer}>
