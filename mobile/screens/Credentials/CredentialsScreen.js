@@ -15,8 +15,6 @@ import {
 import userActions from '../../redux/actions/user.actions';
 
 export class CredentialsScreen extends Component {
-  // Be sure to add form submit
-
   onChangeName = (text) => {
     this.props.updateName(text);
   };

@@ -1,7 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Spinner, ListItem, View, Body, Right, Text } from 'native-base';
+import {
+  Container,
+  Spinner,
+  ListItem,
+  View,
+  Body,
+  Right,
+  Text,
+  Button
+} from 'native-base';
 
 import moment from 'moment';
 
@@ -72,7 +81,18 @@ export class InboxScreen extends Component {
       <Container style={styles.container}>
         {this.props.error ? (
           <View style={styles.spinnerContainer}>
-            <Text>Please Limit To Folders With Less Than 25 Emails</Text>
+            <Text>Please Limit To Folders</Text>
+            <Text style={styles.errorTextBottom}>With Less Than 25 Emails</Text>
+            <Button
+              primary
+              full
+              bordered
+              rounded
+              style={styles.button}
+              onPress={this.onRefresh}
+            >
+              <Text style={styles.buttonText}>Refresh</Text>
+            </Button>
           </View>
         ) : (
           <Fragment>
@@ -126,6 +146,17 @@ const styles = StyleSheet.create({
   dateStyle: {
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  errorTextBottom: { marginBottom: '3%' },
+  button: {
+    borderColor: '#3f51b5',
+    color: '#3f51b5',
+    alignSelf: 'center',
+    width: '50%'
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#3f51b5'
   }
 });
 

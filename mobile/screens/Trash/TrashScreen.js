@@ -1,7 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Spinner, ListItem, View, Body, Right, Text } from 'native-base';
+import {
+  Container,
+  Spinner,
+  ListItem,
+  View,
+  Body,
+  Right,
+  Text,
+  Button
+} from 'native-base';
 
 import moment from 'moment';
 
@@ -73,6 +82,18 @@ export class TrashScreen extends Component {
         {this.props.error ? (
           <View style={styles.spinnerContainer}>
             <Text>Please Limit To Folders With Less Than 25 Emails</Text>
+            <View style={styles.buttonContainer}>
+              <Button
+                primary
+                full
+                bordered
+                rounded
+                style={styles.button}
+                onPress={this.onSubmitUserData}
+              >
+                <Text style={styles.buttonText}>Refresh</Text>
+              </Button>
+            </View>
           </View>
         ) : (
           <Fragment>
@@ -126,6 +147,18 @@ const styles = StyleSheet.create({
   dateStyle: {
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  buttonContainer: {
+    margin: '5%'
+  },
+  button: {
+    borderColor: '#3f51b5',
+    color: '#3f51b5',
+    alignSelf: 'center',
+    width: '50%'
+  },
+  buttonText: {
+    color: '#3f51b5'
   }
 });
 

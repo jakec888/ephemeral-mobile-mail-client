@@ -2,7 +2,8 @@ import retrieveEmailActions from '../actions/retrieveEmail.actions';
 
 const initialState = {
   emails: [],
-  loading: true
+  loading: true,
+  error: false
 };
 
 export default (state = initialState, { type, payload }) => {
