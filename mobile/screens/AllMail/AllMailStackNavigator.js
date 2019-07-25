@@ -14,19 +14,16 @@ const AllMailStackNavigator = createStackNavigator({
   AllMail: {
     screen: AllMailScreen,
     navigationOptions: ({ navigation }) => ({
-      // title: 'All EMail Folder',
       headerTitle: (
         <H3
           style={{
-            height: 'auto',
-            alignSelf: 'center',
-            marginLeft: 'auto',
-            marginRight: 'auto',
+            flex: 1,
+            textAlign: 'center',
             fontWeight: 'bold',
             color: 'white'
           }}
         >
-          All EMail Folder
+          All Email Folder
         </H3>
       ),
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -39,14 +36,11 @@ const AllMailStackNavigator = createStackNavigator({
   View: {
     screen: ViewEmailScreen,
     navigationOptions: ({ navigation }) => ({
-      // title: navigation.state.params.emailName,
       headerTitle: (
         <H3
           style={{
-            height: 'auto',
-            alignSelf: 'center',
-            marginLeft: 'auto',
-            marginRight: 'auto',
+            flex: 1,
+            textAlign: 'center',
             fontWeight: 'bold',
             color: 'white'
           }}
