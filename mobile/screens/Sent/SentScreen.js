@@ -79,44 +79,42 @@ export class SentScreen extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        {this.props.error ? (
+        {this.props.loading ? (
           <View style={styles.spinnerContainer}>
-            <Text>Please Limit To Folders</Text>
-            <Text style={styles.errorTextBottom}>With Less Than 25 Emails</Text>
-            <Button
-              primary
-              full
-              bordered
-              rounded
-              style={styles.button}
-              onPress={this.onRefresh}
-            >
-              <Text style={styles.buttonText}>Refresh</Text>
-            </Button>
+            <Spinner color="#3f51b5" />
+            <Text>Retrieving Sent...</Text>
           </View>
         ) : (
           <Fragment>
-            {this.props.loading ? (
-              <View style={styles.spinnerContainer}>
-                <Spinner color="#3f51b5" />
-                <Text>Retrieving Sent...</Text>
-              </View>
+            {this.props.sentEmails ? (
+              <FlatList
+                data={this.props.sentEmails}
+                renderItem={this.emailView}
+                keyExtractor={(item) => item.id}
+                refreshing={this.props.loading}
+                onRefresh={this.onRefresh}
+              />
             ) : (
-              <Fragment>
-                {this.props.sentEmails ? (
-                  <FlatList
-                    data={this.props.sentEmails}
-                    renderItem={this.emailView}
-                    keyExtractor={(item) => item.id}
-                    refreshing={this.props.loading}
-                    onRefresh={this.onRefresh}
-                  />
+              <View style={styles.spinnerContainer}>
+                {this.props.error ? (
+                  <Fragment>
+                    <Text>Please Limit To Folders</Text>
+                    <Text style={styles.errorTextBottom}>With Less Than 25 Emails</Text>
+                  </Fragment>
                 ) : (
-                  <View style={styles.spinnerContainer}>
-                    <Text>No Emails</Text>
-                  </View>
+                  <Text style={styles.errorTextBottom}>No Emails</Text>
                 )}
-              </Fragment>
+                <Button
+                  primary
+                  full
+                  bordered
+                  rounded
+                  style={styles.button}
+                  onPress={this.onRefresh}
+                >
+                  <Text style={styles.buttonText}>Refresh</Text>
+                </Button>
+              </View>
             )}
           </Fragment>
         )}

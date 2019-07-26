@@ -79,45 +79,42 @@ export class TrashScreen extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        {this.props.error ? (
+        {this.props.loading ? (
           <View style={styles.spinnerContainer}>
-            <Text>Please Limit To Folders With Less Than 25 Emails</Text>
-            <View style={styles.buttonContainer}>
-              <Button
-                primary
-                full
-                bordered
-                rounded
-                style={styles.button}
-                onPress={this.onSubmitUserData}
-              >
-                <Text style={styles.buttonText}>Refresh</Text>
-              </Button>
-            </View>
+            <Spinner color="#3f51b5" />
+            <Text>Retrieving Trash...</Text>
           </View>
         ) : (
           <Fragment>
-            {this.props.loading ? (
-              <View style={styles.spinnerContainer}>
-                <Spinner color="#3f51b5" />
-                <Text>Retrieving Trash...</Text>
-              </View>
+            {this.props.trashEmails ? (
+              <FlatList
+                data={this.props.trashEmails}
+                renderItem={this.emailView}
+                keyExtractor={(item) => item.id}
+                refreshing={this.props.loading}
+                onRefresh={this.onRefresh}
+              />
             ) : (
-              <Fragment>
-                {this.props.trashEmails ? (
-                  <FlatList
-                    data={this.props.trashEmails}
-                    renderItem={this.emailView}
-                    keyExtractor={(item) => item.id}
-                    refreshing={this.props.loading}
-                    onRefresh={this.onRefresh}
-                  />
+              <View style={styles.spinnerContainer}>
+                {this.props.error ? (
+                  <Fragment>
+                    <Text>Please Limit To Folders</Text>
+                    <Text style={styles.errorTextBottom}>With Less Than 25 Emails</Text>
+                  </Fragment>
                 ) : (
-                  <View style={styles.spinnerContainer}>
-                    <Text>No Emails</Text>
-                  </View>
+                  <Text style={styles.errorTextBottom}>No Emails</Text>
                 )}
-              </Fragment>
+                <Button
+                  primary
+                  full
+                  bordered
+                  rounded
+                  style={styles.button}
+                  onPress={this.onRefresh}
+                >
+                  <Text style={styles.buttonText}>Refresh</Text>
+                </Button>
+              </View>
             )}
           </Fragment>
         )}
