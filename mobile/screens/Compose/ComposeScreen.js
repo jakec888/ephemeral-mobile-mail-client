@@ -3,7 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import {
   Container,
-  // Content,
   Form,
   Item,
   Input,
@@ -68,7 +67,7 @@ export class ComposeScreen extends Component {
                 rowSpan={10}
                 bordered
                 autoCapitalize="none"
-                placeholder="Message Here!"
+                placeholder="Hi there!"
                 placeholderTextColor="#3f51b5"
                 style={styles.TextAreaText}
                 value={this.props.currentMessage}
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
   TextAreaText: {
     borderColor: '#fff',
     width: '100%',
-    fontSize: 21
+    fontSize: 18
   },
   buttonContainer: {
     margin: '5%',
