@@ -21,8 +21,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.jakec888.Ephemeral_Mobile_Mail_Client",
-      "permissions": ["CAMERA", "RECORD_AUDIO", "READ_PHONE_STATE", "READ_CONTACTS"]
+      "package": "com.jakec888.EphemeralMobileMailClientAndroid"
     }
   }
 }
