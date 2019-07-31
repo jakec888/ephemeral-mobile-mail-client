@@ -2,6 +2,8 @@
 
 ## About
 
+Visit: [Ephemeral Mobile Mail Client](https://play.google.com/store/apps/details?id=com.jakec888.ephemeral_mobile_mail_client_android)
+
 Deployed only on the google play store.
 
 Ephemeral online email client that will securely check your emails anywhere without holding you information.
