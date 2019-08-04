@@ -2,7 +2,7 @@
 
 ## About
 
-Google Play Store: [Ephemeral Mobile Mail Client](https://play.google.com/store/apps/details?id=com.jakec888.ephemeral_mobile_mail_client_android)
+Google Play Store: [Ephemeral Mobile Mail Client (Pending Review)](https://play.google.com/store/apps/details?id=com.jakec888.ephemeral_mobile_mail_client_android)
 
 Deployed only on the google play store.
 
