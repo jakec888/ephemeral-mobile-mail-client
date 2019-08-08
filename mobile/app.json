@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": ["ios", "android", "web"],
-    "version": "1.1.0",
+    "version": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,7 +22,7 @@
     },
     "android": {
       "package": "com.jakec888.ephemeral_mobile_mail_client_android",
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": [],
       "icon": "./assets/icon.png"
     }
