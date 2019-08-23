@@ -1,3 +1,17 @@
+/* 
+  View Email Screen
+
+  shows the selected email
+  - subject
+  - date
+  - name
+  - email
+  - html and plain text body
+  
+  switch between html and plain text depending on which is avaiable; html is preferable
+  avatar should be the first letter of the first name and last name. example => Jake Condes = JC
+*/
+
 import React, { Component } from 'react';
 import { StyleSheet, WebView } from 'react-native';
 import { connect } from 'react-redux';
