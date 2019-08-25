@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { AppLoading } from 'expo';
 import { FontAwesome } from '@expo/vector-icons';
 import { Asset } from 'expo-asset';
@@ -29,7 +29,7 @@ function cacheFonts(fonts) {
   );
 }
 
-export default class AppContainer extends React.Component {
+export default class AppContainer extends Component {
   state = {
     isReady: false
   };

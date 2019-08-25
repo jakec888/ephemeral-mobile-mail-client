@@ -1,3 +1,9 @@
+/* 
+  Base Navigation
+  
+  the first createSwitchNavigator is similar to how a auth system would be implemented
+*/
+
 import React from 'react';
 
 import {
