@@ -1,5 +1,14 @@
 # Ephemeral Email Mobile Client
 
+### Most Recent Project:
+
+[Bityle Clone](https://github.com/jakec888/bitly-clone) which uses the tecnologies here but with redux saga and to make asynchronous generator-linke requests.
+
+### In Progress:
+
+- **redux-saga/generators** (**recently finished** at most recent project **[Bityle Clone](https://github.com/jakec888/bitly-clone)**)
+- testing using **jest** and **enzyme**
+
 ## About
 
 Google Play Store: [Ephemeral Mobile Mail Client](https://play.google.com/store/apps/details?id=com.jakec888.ephemeral_mobile_mail_client_android)
