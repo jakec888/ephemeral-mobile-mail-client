@@ -5,9 +5,9 @@ const selectMenuActions = {
       dispatch({
         type: selectMenuActions.SELECT_MENU,
         payload: menuItem
-      });
-    };
+      })
+    }
   }
-};
+}
 
-export default selectMenuActions;
+export default selectMenuActions

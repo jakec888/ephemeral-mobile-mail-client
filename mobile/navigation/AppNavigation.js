@@ -1,25 +1,25 @@
-/* 
+/*
   Base Navigation
-  
+
   the first createSwitchNavigator is similar to how a auth system would be implemented
 */
 
-import React from 'react';
+import React from 'react'
 
 import {
   createDrawerNavigator,
   createAppContainer,
   createSwitchNavigator
-} from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
+} from 'react-navigation'
+import { Ionicons } from '@expo/vector-icons'
 
-import AllMailStackNavigator from '../screens/AllMail/AllMailStackNavigator';
-import SentStackNavigator from '../screens/Sent/SentStackNavigator';
-import InboxStackNavigator from '../screens/Inbox/InboxStackNavigator';
-import ComposeStackNavigator from '../screens/Compose/ComposeStackNavigator';
-import TrashStackNavigator from '../screens/Trash/TrashStackNavigator';
+import AllMailStackNavigator from '../screens/AllMail/AllMailStackNavigator'
+import SentStackNavigator from '../screens/Sent/SentStackNavigator'
+import InboxStackNavigator from '../screens/Inbox/InboxStackNavigator'
+import ComposeStackNavigator from '../screens/Compose/ComposeStackNavigator'
+import TrashStackNavigator from '../screens/Trash/TrashStackNavigator'
 
-import CredentialsStackNavigator from '../screens/Credentials/CredentialsStackNavigator';
+import CredentialsStackNavigator from '../screens/Credentials/CredentialsStackNavigator'
 
 const AppDrawerNavigator = createDrawerNavigator(
   {
@@ -67,7 +67,7 @@ const AppDrawerNavigator = createDrawerNavigator(
       }
     }
   }
-);
+)
 
 export default createAppContainer(
   createSwitchNavigator(
@@ -79,4 +79,4 @@ export default createAppContainer(
       initialRouteName: 'Cred'
     }
   )
-);
+)

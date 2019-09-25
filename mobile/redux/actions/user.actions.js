@@ -14,60 +14,60 @@ const userActions = {
       dispatch({
         type: userActions.UPDATE_NAME,
         payload: { name: name }
-      });
-    };
+      })
+    }
   },
   updateEmail: (email) => {
     return (dispatch) => {
       dispatch({
         type: userActions.UPDATE_EMAIL,
         payload: { email: email }
-      });
-    };
+      })
+    }
   },
   updatePassword: (password) => {
     return (dispatch) => {
       dispatch({
         type: userActions.UPDATE_PASSWORD,
         payload: { password: password }
-      });
-    };
+      })
+    }
   },
   updateIMAPServer: (imap_server) => {
     return (dispatch) => {
       dispatch({
         type: userActions.UPDATE_IMAP_SERVER,
         payload: { imap_server: imap_server }
-      });
-    };
+      })
+    }
   },
   updateIMAPPort: (imap_port) => {
     return (dispatch) => {
       dispatch({
         type: userActions.UPDATE_IMAP_PORT,
         payload: { imap_port: imap_port }
-      });
-    };
+      })
+    }
   },
   updateSMTPServer: (smtp_server) => {
     return (dispatch) => {
       dispatch({
         type: userActions.UPDATE_SMTP_SERVER,
         payload: { smtp_server: smtp_server }
-      });
-    };
+      })
+    }
   },
   updateSMTPPort: (smtp_port) => {
     return (dispatch) => {
       dispatch({
         type: userActions.UPDATE_SMTP_PORT,
         payload: { smtp_port: smtp_port }
-      });
-    };
+      })
+    }
   },
   authenticateUser: () => {
     return (dispatch, getState) => {
-      const profile = getState().Profile;
+      const profile = getState().Profile
       if (
         profile.name &&
         profile.email &&
@@ -80,15 +80,15 @@ const userActions = {
         dispatch({
           type: userActions.AUTHENTICATE,
           payload: { validCredentials: true }
-        });
+        })
       } else {
         dispatch({
           type: userActions.UNAUTHENTICATE,
           payload: { validCredentials: false }
-        });
+        })
       }
-    };
+    }
   }
-};
+}
 
-export default userActions;
+export default userActions

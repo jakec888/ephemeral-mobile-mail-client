@@ -1,4 +1,4 @@
-import API from '../../api/email';
+import API from '../../api/email'
 
 const retrieveEmailActions = {
   GET_EMAILS: 'GET_EMAILS',
@@ -9,12 +9,12 @@ const retrieveEmailActions = {
       dispatch({
         type: retrieveEmailActions.LOADING_EMAIL,
         payload: status
-      });
-    };
+      })
+    }
   },
   retrieveEmails: (folder) => {
     return (dispatch, getState) => {
-      const profile = getState().Profile;
+      const profile = getState().Profile
       return API.get('/get-emails', {
         params: {
           RequestedFolder: folder,
@@ -28,20 +28,20 @@ const retrieveEmailActions = {
           dispatch({
             type: retrieveEmailActions.GET_EMAILS,
             payload: { emails: result.data.emails, error: false }
-          });
+          })
         })
         .catch((err) => {
-          alert('Please Limit To Folders With Less Than 25 Emails');
+          alert('Please Limit To Folders With Less Than 25 Emails')
           dispatch({
             type: retrieveEmailActions.GET_EMAILS,
             payload: { error: true, errorMessage: `${err}` }
-          });
-        });
-    };
+          })
+        })
+    }
   },
   sendEmailTest: (email) => {
     return (dispatch, getState) => {
-      const Profile = getState().Profile;
+      const Profile = getState().Profile
       API.post('/smtp', {
         email: Profile.email,
         password: Profile.password,
@@ -58,16 +58,16 @@ const retrieveEmailActions = {
           dispatch({
             type: retrieveEmailActions.SEND_EMAIL,
             payload: result.data
-          });
+          })
         })
         .catch((err) => {
           dispatch({
             type: retrieveEmailActions.SEND_EMAIL,
             payload: err
-          });
-        });
-    };
+          })
+        })
+    }
   }
-};
+}
 
-export default retrieveEmailActions;
+export default retrieveEmailActions

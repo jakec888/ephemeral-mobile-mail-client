@@ -1,14 +1,14 @@
-import React from 'react';
-import { createStackNavigator } from 'react-navigation';
+import React from 'react'
+import { createStackNavigator } from 'react-navigation'
 
-import { Text } from 'native-base';
+import { Text } from 'native-base'
 
-import AllMailScreen from './AllMailScreen';
-import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
+import AllMailScreen from './AllMailScreen'
+import ViewEmailScreen from '../ViewEmail/ViewEmailScreen'
 
-import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
+import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure'
 
-import EmailInfo from '../../components/emailInfo';
+import EmailInfo from '../../components/emailInfo'
 
 const AllMailStackNavigator = createStackNavigator({
   AllMail: {
@@ -66,6 +66,6 @@ const AllMailStackNavigator = createStackNavigator({
       headerTintColor: '#fff'
     })
   }
-});
+})
 
-export default AllMailStackNavigator;
+export default AllMailStackNavigator

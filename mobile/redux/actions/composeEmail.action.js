@@ -1,4 +1,4 @@
-import API from '../../api/email';
+import API from '../../api/email'
 
 const composeEmailActions = {
   COMPOSE_TO: 'COMPOSE_TO',
@@ -13,24 +13,24 @@ const composeEmailActions = {
       dispatch({
         type: composeEmailActions.COMPOSE_TO,
         payload: { to: toAddress }
-      });
-    };
+      })
+    }
   },
   updateSubject: (subject) => {
     return (dispatch) => {
       dispatch({
         type: composeEmailActions.COMPOSE_SUBJECT,
         payload: { subject }
-      });
-    };
+      })
+    }
   },
   updateMessage: (message) => {
     return (dispatch) => {
       dispatch({
         type: composeEmailActions.COMPOSE_MESSAGE,
         payload: { message }
-      });
-    };
+      })
+    }
   },
   trashMessage: () => {
     return (dispatch) => {
@@ -41,8 +41,8 @@ const composeEmailActions = {
           subject: '',
           message: ''
         }
-      });
-    };
+      })
+    }
   },
   sendMessage: () => {
     return (dispatch, getState) => {
@@ -51,9 +51,9 @@ const composeEmailActions = {
         payload: {
           loading: true
         }
-      });
-      const profile = getState().Profile;
-      const email = getState().ComposeEmail;
+      })
+      const profile = getState().Profile
+      const email = getState().ComposeEmail
       API.post('/send-email', {
         email: profile.email,
         password: profile.password,
@@ -75,10 +75,10 @@ const composeEmailActions = {
               error: '',
               loading: false
             }
-          });
-          alert('Email Successfully Sent');
+          })
+          alert('Email Successfully Sent')
         })
-        .catch((err) => {
+        .catch(() => {
           dispatch({
             type: composeEmailActions.SEND_MESSAGE,
             payload: {
@@ -87,11 +87,11 @@ const composeEmailActions = {
               message: email.message,
               loading: false
             }
-          });
-          alert('Email Was Not Send');
-        });
-    };
+          })
+          alert('Email Was Not Send')
+        })
+    }
   }
-};
+}
 
-export default composeEmailActions;
+export default composeEmailActions

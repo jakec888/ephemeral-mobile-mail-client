@@ -1,12 +1,12 @@
-/* 
+/*
   Credentials Screen
 
   this has the same standards and practices that would mirror authentication flows
 */
 
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { StyleSheet, View } from 'react-native'
+import { connect } from 'react-redux'
 import {
   Container,
   Content,
@@ -16,45 +16,45 @@ import {
   Label,
   Button,
   Text
-} from 'native-base';
+} from 'native-base'
 
-import userActions from '../../redux/actions/user.actions';
+import userActions from '../../redux/actions/user.actions'
 
 export class CredentialsScreen extends Component {
   onChangeName = (text) => {
-    this.props.updateName(text);
+    this.props.updateName(text)
   };
 
   onChangeEmail = (text) => {
-    this.props.updateEmail(text);
+    this.props.updateEmail(text)
   };
 
   onChangePassword = (text) => {
-    this.props.updatePassword(text);
+    this.props.updatePassword(text)
   };
 
   onChangeIMAPServer = (text) => {
-    this.props.updateIMAPServer(text);
+    this.props.updateIMAPServer(text)
   };
 
   onChangeIMAPPort = (text) => {
-    this.props.updateIMAPPort(text);
+    this.props.updateIMAPPort(text)
   };
 
   onChangeSMTPServer = (text) => {
-    this.props.updateSMTPServer(text);
+    this.props.updateSMTPServer(text)
   };
 
   onChangeSMTPPort = (text) => {
-    this.props.updateSMTPPort(text);
+    this.props.updateSMTPPort(text)
   };
 
   onSubmitUserData = (event) => {
-    this.props.authenticateUser();
-    this.props.navigation.navigate('App');
+    this.props.authenticateUser()
+    this.props.navigation.navigate('App')
   };
 
-  render() {
+  render () {
     return (
       <Container>
         <Content style={styles.container}>
@@ -106,7 +106,7 @@ export class CredentialsScreen extends Component {
           </Form>
         </Content>
       </Container>
-    );
+    )
   }
 }
 
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#3f51b5'
   }
-});
+})
 
 const mapStateToProps = (state) => ({
   name: state.Profile.name,
@@ -143,7 +143,7 @@ const mapStateToProps = (state) => ({
   smtp_server: state.Profile.smtp_server,
   smtp_port: state.Profile.smtp_port,
   validCredentials: state.Profile.validCredentials
-});
+})
 
 const mapDispatchToProps = {
   updateName: userActions.updateName,
@@ -154,9 +154,9 @@ const mapDispatchToProps = {
   updateSMTPServer: userActions.updateSMTPServer,
   updateSMTPPort: userActions.updateSMTPPort,
   authenticateUser: userActions.authenticateUser
-};
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CredentialsScreen);
+)(CredentialsScreen)

@@ -1,9 +1,9 @@
-import React from 'react';
-import { createStackNavigator } from 'react-navigation';
+import React from 'react'
+import { createStackNavigator } from 'react-navigation'
 
-import { Text } from 'native-base';
+import { Text } from 'native-base'
 
-import CredentialsScreen from './CredentialsScreen';
+import CredentialsScreen from './CredentialsScreen'
 
 const CredentialsStackNavigator = createStackNavigator({
   AllMail: {
@@ -27,6 +27,6 @@ const CredentialsStackNavigator = createStackNavigator({
       headerTintColor: '#fff'
     })
   }
-});
+})
 
-export default CredentialsStackNavigator;
+export default CredentialsStackNavigator

@@ -1,12 +1,12 @@
-/* 
+/*
   Compose Email View
-  
+
   send emails from the application to any valid email.
 */
 
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { StyleSheet, View } from 'react-native'
+import { connect } from 'react-redux'
 import {
   Container,
   Form,
@@ -17,32 +17,32 @@ import {
   Text,
   Textarea,
   Spinner
-} from 'native-base';
+} from 'native-base'
 
-import composeEmailActions from '../../redux/actions/composeEmail.action';
+import composeEmailActions from '../../redux/actions/composeEmail.action'
 
 export class ComposeScreen extends Component {
   componentDidMount = () => {
-    this.props.validCredentials !== true && this.props.navigation.navigate('Cred');
+    this.props.validCredentials !== true && this.props.navigation.navigate('Cred')
   };
 
   onChangeToAddress = (text) => {
-    this.props.updateToAddress(text);
+    this.props.updateToAddress(text)
   };
 
   onChangeSubject = (text) => {
-    this.props.updateSubject(text);
+    this.props.updateSubject(text)
   };
 
   onChangeMessage = (text) => {
-    this.props.updateMessage(text);
+    this.props.updateMessage(text)
   };
 
   onSendEmail = (event) => {
-    this.props.onSendMessage();
+    this.props.onSendMessage()
   };
 
-  render() {
+  render () {
     return (
       <Container style={styles.container}>
         {this.props.loading ? (
@@ -105,7 +105,7 @@ export class ComposeScreen extends Component {
           </Form>
         )}
       </Container>
-    );
+    )
   }
 }
 
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   }
-});
+})
 
 const mapStateToProps = (state) => ({
   validCredentials: state.Profile.validCredentials,
@@ -156,7 +156,7 @@ const mapStateToProps = (state) => ({
   currentMessage: state.ComposeEmail.message,
   emailError: state.ComposeEmail.error,
   loading: state.ComposeEmail.loading
-});
+})
 
 const mapDispatchToProps = {
   updateToAddress: composeEmailActions.updateTo,
@@ -164,9 +164,9 @@ const mapDispatchToProps = {
   updateMessage: composeEmailActions.updateMessage,
   onTrashMessage: composeEmailActions.trashMessage,
   onSendMessage: composeEmailActions.sendMessage
-};
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ComposeScreen);
+)(ComposeScreen)

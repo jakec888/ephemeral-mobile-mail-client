@@ -1,23 +1,23 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import ReduxThunk from "redux-thunk";
-import { combineReducers } from "redux";
-import rootReducer from "./reducers/reducers";
-import createSagaMiddleware from "redux-saga";
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import ReduxThunk from 'redux-thunk'
 
-const ReduxSaga = createSagaMiddleware();
+import rootReducer from './reducers/reducers'
+import createSagaMiddleware from 'redux-saga'
 
-const middlewares = [ReduxThunk, ReduxSaga];
+const ReduxSaga = createSagaMiddleware()
 
-const composeEnhancers = compose(applyMiddleware(...middlewares));
+const middlewares = [ReduxThunk, ReduxSaga]
 
-const store = createStore(combineReducers(rootReducer), composeEnhancers);
+const composeEnhancers = compose(applyMiddleware(...middlewares))
 
-export default store;
+const store = createStore(combineReducers(rootReducer), composeEnhancers)
 
-// import { createStore, applyMiddleware, compose } from 'redux';
-// import ReduxThunk from 'redux-thunk';
-// import { combineReducers } from 'redux';
-// import rootReducer from './reducers/reducers';
+export default store
+
+// import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+// import ReduxThunk from 'redux-thunk'
+
+// import rootReducer from './reducers/reducers'
 
 // // Dev
 // // redux will break if
@@ -27,8 +27,8 @@ export default store;
 // // );
 
 // // Production
-// const composeEnhancers = compose(applyMiddleware(ReduxThunk));
+// const composeEnhancers = compose(applyMiddleware(ReduxThunk))
 
-// const store = createStore(combineReducers(rootReducer), composeEnhancers);
+// const store = createStore(combineReducers(rootReducer), composeEnhancers)
 
-// export default store;
+// export default store

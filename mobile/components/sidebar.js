@@ -1,6 +1,6 @@
-import React from 'react';
-import { DrawerItems, SafeAreaView } from 'react-navigation';
-import { Image, StyleSheet, ScrollView } from 'react-native';
+import React from 'react'
+import { DrawerItems, SafeAreaView } from 'react-navigation'
+import { Image, StyleSheet, ScrollView } from 'react-native'
 
 const CustomeSideBar = (props) => (
   <ScrollView>
@@ -36,12 +36,12 @@ const CustomeSideBar = (props) => (
       <DrawerItems {...props} />
     </SafeAreaView>
   </ScrollView>
-);
+)
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
   }
-});
+})
 
-export default CustomeSideBar;
+export default CustomeSideBar

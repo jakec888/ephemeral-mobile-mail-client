@@ -1,15 +1,15 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import React from 'react'
+import { Platform } from 'react-native'
+import { createStackNavigator } from 'react-navigation'
 
-import { Text } from 'native-base';
+import { Text } from 'native-base'
 
-import InboxScreen from './InboxScreen';
-import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
+import InboxScreen from './InboxScreen'
+import ViewEmailScreen from '../ViewEmail/ViewEmailScreen'
 
-import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
+import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure'
 
-import EmailInfo from '../../components/emailInfo';
+import EmailInfo from '../../components/emailInfo'
 
 const InboxStackNavigator = createStackNavigator({
   Inbox: {
@@ -61,6 +61,6 @@ const InboxStackNavigator = createStackNavigator({
       headerTintColor: '#fff'
     })
   }
-});
+})
 
-export default InboxStackNavigator;
+export default InboxStackNavigator

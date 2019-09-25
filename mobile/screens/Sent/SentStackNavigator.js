@@ -1,15 +1,15 @@
-import React from 'react';
-import { createStackNavigator } from 'react-navigation';
-import { Platform } from 'react-native';
+import React from 'react'
+import { createStackNavigator } from 'react-navigation'
+import { Platform } from 'react-native'
 
-import { Text } from 'native-base';
+import { Text } from 'native-base'
 
-import SentScreen from './SentScreen';
-import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
+import SentScreen from './SentScreen'
+import ViewEmailScreen from '../ViewEmail/ViewEmailScreen'
 
-import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
+import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure'
 
-import EmailInfo from '../../components/emailInfo';
+import EmailInfo from '../../components/emailInfo'
 
 const SentStackNavigator = createStackNavigator({
   Sent: {
@@ -72,6 +72,6 @@ const SentStackNavigator = createStackNavigator({
       headerTintColor: '#fff'
     })
   }
-});
+})
 
-export default SentStackNavigator;
+export default SentStackNavigator

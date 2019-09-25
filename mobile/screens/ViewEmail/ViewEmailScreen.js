@@ -1,4 +1,4 @@
-/* 
+/*
   View Email Screen
 
   shows the selected email
@@ -7,22 +7,22 @@
   - name
   - email
   - html and plain text body
-  
+
   switch between html and plain text depending on which is avaiable; html is preferable
   avatar should be the first letter of the first name and last name. example => Jake Condes = JC
 */
 
-import React, { Component } from 'react';
-import { StyleSheet, WebView } from 'react-native';
-import { connect } from 'react-redux';
-import { Container, Content, Text } from 'native-base';
+import React, { Component } from 'react'
+import { StyleSheet, WebView } from 'react-native'
+import { connect } from 'react-redux'
+import { Container, Content, Text } from 'native-base'
 
 export class ViewEmailScreen extends Component {
   componentDidMount = () => {
-    this.props.validCredentials !== true && this.props.navigation.navigate('Cred');
+    this.props.validCredentials !== true && this.props.navigation.navigate('Cred')
   };
 
-  render() {
+  render () {
     return (
       <Container>
         {this.props.selectedEmail.body_html ? (
@@ -38,7 +38,7 @@ export class ViewEmailScreen extends Component {
           </Content>
         )}
       </Container>
-    );
+    )
   }
 }
 
@@ -52,16 +52,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '600'
   }
-});
+})
 
 const mapStateToProps = (state) => ({
   validCredentials: state.Profile.validCredentials,
   selectedEmail: state.SelectedEmail
-});
+})
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ViewEmailScreen);
+)(ViewEmailScreen)
