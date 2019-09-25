@@ -18,7 +18,6 @@ import {
   Text
 } from 'native-base'
 
-// import userActions from '../../redux/actions/user.actions'
 import { updateName, updateEmail, updatePassword, updateIMAPServer, updateIMAPPort, updateSMTPServer, updateSMTPPort, authenticateUser } from '../../redux/actions/user.actions'
 
 export class CredentialsScreen extends Component {

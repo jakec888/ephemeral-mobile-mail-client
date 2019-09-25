@@ -19,8 +19,6 @@ import {
   Spinner
 } from 'native-base'
 
-// import composeEmailActions from '../../redux/actions/composeEmail.action'
-
 import { updateTo, updateSubject, updateMessage, trashMessage, sendMessage } from '../../redux/actions/composeEmail.action'
 
 export class ComposeScreen extends Component {

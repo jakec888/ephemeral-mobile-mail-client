@@ -25,9 +25,6 @@ import {
 
 import moment from 'moment'
 
-// import selectEmailActions from '../../redux/actions/selectEmail.action'
-// import retrieveEmailActions from '../../redux/actions/retrieveEmail.actions'
-
 import { selectEmail } from '../../redux/actions/selectEmail.action'
 import { retrieveEmails, loadingEmail } from '../../redux/actions/retrieveEmail.actions'
 
