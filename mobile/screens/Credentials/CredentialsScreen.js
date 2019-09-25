@@ -18,7 +18,8 @@ import {
   Text
 } from 'native-base'
 
-import userActions from '../../redux/actions/user.actions'
+// import userActions from '../../redux/actions/user.actions'
+import { updateName, updateEmail, updatePassword, updateIMAPServer, updateIMAPPort, updateSMTPServer, updateSMTPPort, authenticateUser } from '../../redux/actions/user.actions'
 
 export class CredentialsScreen extends Component {
   onChangeName = (text) => {
@@ -146,14 +147,14 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  updateName: userActions.updateName,
-  updateEmail: userActions.updateEmail,
-  updatePassword: userActions.updatePassword,
-  updateIMAPServer: userActions.updateIMAPServer,
-  updateIMAPPort: userActions.updateIMAPPort,
-  updateSMTPServer: userActions.updateSMTPServer,
-  updateSMTPPort: userActions.updateSMTPPort,
-  authenticateUser: userActions.authenticateUser
+  updateName: updateName,
+  updateEmail: updateEmail,
+  updatePassword: updatePassword,
+  updateIMAPServer: updateIMAPServer,
+  updateIMAPPort: updateIMAPPort,
+  updateSMTPServer: updateSMTPServer,
+  updateSMTPPort: updateSMTPPort,
+  authenticateUser: authenticateUser
 }
 
 export default connect(

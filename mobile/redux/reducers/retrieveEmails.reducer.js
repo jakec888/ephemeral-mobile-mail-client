@@ -1,4 +1,5 @@
-import retrieveEmailActions from '../actions/retrieveEmail.actions'
+// import retrieveEmailActions from '../actions/retrieveEmail.actions'
+import { GET_EMAILS, SEND_EMAIL, LOADING_EMAIL } from '../actions/retrieveEmail.actions'
 
 const initialState = {
   emails: [],
@@ -8,11 +9,11 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case retrieveEmailActions.GET_EMAILS:
+    case GET_EMAILS:
       return { ...state, emails: payload.emails, error: payload.error }
-    case retrieveEmailActions.SEND_EMAIL:
+    case SEND_EMAIL:
       return { ...state, sent: payload }
-    case retrieveEmailActions.LOADING_EMAIL:
+    case LOADING_EMAIL:
       return { ...state, loading: payload }
     default:
       return state

@@ -25,8 +25,11 @@ import {
 
 import moment from 'moment'
 
-import selectEmailActions from '../../redux/actions/selectEmail.action'
-import retrieveEmailActions from '../../redux/actions/retrieveEmail.actions'
+// import selectEmailActions from '../../redux/actions/selectEmail.action'
+// import retrieveEmailActions from '../../redux/actions/retrieveEmail.actions'
+
+import { selectEmail } from '../../redux/actions/selectEmail.action'
+import { retrieveEmails, loadingEmail } from '../../redux/actions/retrieveEmail.actions'
 
 export class TrashScreen extends Component {
   componentDidMount = () => {
@@ -178,9 +181,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  selectEmail: selectEmailActions.selectEmail,
-  retrieveEmails: retrieveEmailActions.retrieveEmails,
-  loadingEmail: retrieveEmailActions.loadingEmail
+  selectEmail: selectEmail,
+  retrieveEmails: retrieveEmails,
+  loadingEmail: loadingEmail
 }
 
 export default connect(

@@ -19,7 +19,9 @@ import {
   Spinner
 } from 'native-base'
 
-import composeEmailActions from '../../redux/actions/composeEmail.action'
+// import composeEmailActions from '../../redux/actions/composeEmail.action'
+
+import { updateTo, updateSubject, updateMessage, trashMessage, sendMessage } from '../../redux/actions/composeEmail.action'
 
 export class ComposeScreen extends Component {
   componentDidMount = () => {
@@ -159,11 +161,11 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  updateToAddress: composeEmailActions.updateTo,
-  updateSubject: composeEmailActions.updateSubject,
-  updateMessage: composeEmailActions.updateMessage,
-  onTrashMessage: composeEmailActions.trashMessage,
-  onSendMessage: composeEmailActions.sendMessage
+  updateToAddress: updateTo,
+  updateSubject: updateSubject,
+  updateMessage: updateMessage,
+  onTrashMessage: trashMessage,
+  onSendMessage: sendMessage
 }
 
 export default connect(
