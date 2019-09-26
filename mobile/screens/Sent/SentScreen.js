@@ -37,14 +37,14 @@ export class SentScreen extends Component {
     }
   };
 
-  onRetrieveSent = async () => {
-    await this.props.loadingEmail(true)
-    await this.props.retrieveEmails('Sent')
-    await this.props.loadingEmail(false)
+  onRetrieveSent = () => {
+    this.props.loadingEmail(true)
+    this.props.retrieveEmails('Sent')
+    this.props.loadingEmail(false)
   };
 
-  onRefresh = async () => {
-    await this.onRetrieveSent()
+  onRefresh = () => {
+    this.onRetrieveSent()
   };
 
   onSelectEmail = (emailId, name, email, subject, date) => {

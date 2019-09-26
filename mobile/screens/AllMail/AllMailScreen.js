@@ -37,14 +37,14 @@ export class AllMailScreen extends Component {
     }
   };
 
-  onRetrieveAllMail = async () => {
-    await this.props.loadingEmail(true)
-    await this.props.retrieveEmails('AllMail')
-    await this.props.loadingEmail(false)
+  onRetrieveAllMail = () => {
+    this.props.loadingEmail(true)
+    this.props.retrieveEmails('AllMail')
+    this.props.loadingEmail(false)
   };
 
-  onRefresh = async () => {
-    await this.onRetrieveAllMail()
+  onRefresh = () => {
+    this.onRetrieveAllMail()
   };
 
   onSelectEmail = (emailId, name, email, subject, date) => {

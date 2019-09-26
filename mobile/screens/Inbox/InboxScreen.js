@@ -37,14 +37,13 @@ export class InboxScreen extends Component {
     }
   };
 
-  onRetrieveInbox = async () => {
-    await this.props.loadingEmail(true)
-    await this.props.retrieveEmails('Inbox')
-    await this.props.loadingEmail(false)
+  onRetrieveInbox = () => {
+    this.props.loadingEmail(true)
+    this.props.retrieveEmails('Inbox')
   };
 
-  onRefresh = async () => {
-    await this.onRetrieveInbox()
+  onRefresh = () => {
+    this.onRetrieveInbox()
   };
 
   onSelectEmail = (emailId, name, email, subject, date) => {

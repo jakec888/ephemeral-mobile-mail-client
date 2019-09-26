@@ -37,14 +37,14 @@ export class TrashScreen extends Component {
     }
   };
 
-  onRetrieveTrash = async () => {
-    await this.props.loadingEmail(true)
-    await this.props.retrieveEmails('Trash')
-    await this.props.loadingEmail(false)
+  onRetrieveTrash = () => {
+    this.props.loadingEmail(true)
+    this.props.retrieveEmails('Trash')
+    this.props.loadingEmail(false)
   };
 
-  onRefresh = async () => {
-    await this.onRetrieveTrash()
+  onRefresh = () => {
+    this.onRetrieveTrash()
   };
 
   onSelectEmail = (emailId, name, email, subject, date) => {

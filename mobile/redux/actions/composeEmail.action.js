@@ -1,10 +1,9 @@
-import API from '../../api/email'
-
 export const COMPOSE_TO = 'COMPOSE_TO'
 export const COMPOSE_SUBJECT = 'COMPOSE_SUBJECT'
 export const COMPOSE_MESSAGE = 'COMPOSE_MESSAGE'
 export const TRASH_MESSAGE = 'TRASH_MESSAGE'
 export const SEND_MESSAGE = 'SEND_MESSAGE'
+export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS'
 export const ERROR_SEND_MESSAGE = 'ERROR_SEND_MESSAGE'
 export const LOADING = 'LOADING'
 
@@ -29,7 +28,7 @@ export const updateSubject = (subject) => {
 export const updateMessage = (message) => {
   return (dispatch) => {
     dispatch({
-      type: composeEmailActions.COMPOSE_MESSAGE,
+      type: COMPOSE_MESSAGE,
       payload: { message }
     })
   }
@@ -38,7 +37,7 @@ export const updateMessage = (message) => {
 export const trashMessage = () => {
   return (dispatch) => {
     dispatch({
-      type: composeEmailActions.TRASH_MESSAGE,
+      type: TRASH_MESSAGE,
       payload: {
         to: '',
         subject: '',
@@ -48,17 +47,12 @@ export const trashMessage = () => {
   }
 }
 
-export const sendMessage = () => {
-  return (dispatch, getState) => {
-    dispatch({
-      type: composeEmailActions.LOADING,
-      payload: {
-        loading: true
-      }
-    })
-    const profile = getState().Profile
-    const email = getState().ComposeEmail
-    API.post('/send-email', {
+export const sendMessage = () => (dispatch, getState) => {
+  const profile = getState().Profile
+  const email = getState().ComposeEmail
+  dispatch({
+    type: SEND_MESSAGE,
+    payload: {
       email: profile.email,
       password: profile.password,
       smtp_server: profile.smtp_server,
@@ -68,31 +62,19 @@ export const sendMessage = () => {
       toAddress: email.to,
       subject: email.subject,
       bodyPLAIN: email.message
-    })
-      .then((result) => {
-        dispatch({
-          type: composeEmailActions.SEND_MESSAGE,
-          payload: {
-            to: '',
-            subject: '',
-            message: '',
-            error: '',
-            loading: false
-          }
-        })
-        alert('Email Successfully Sent')
-      })
-      .catch(() => {
-        dispatch({
-          type: composeEmailActions.SEND_MESSAGE,
-          payload: {
-            to: email.to,
-            subject: email.subject,
-            message: email.message,
-            loading: false
-          }
-        })
-        alert('Email Was Not Send')
-      })
-  }
+    }
+  })
+}
+
+export const sendMessageSuccess = (result) => (dispatch) => {
+  dispatch({
+    type: SEND_MESSAGE_SUCCESS,
+    payload: {
+      to: '',
+      subject: '',
+      message: '',
+      error: ''
+    }
+  })
+  alert('Email Successfully Sent')
 }

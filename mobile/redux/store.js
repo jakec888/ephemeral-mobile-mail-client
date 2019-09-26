@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import ReduxThunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
 
 import rootReducer from './reducers/reducers'
-import createSagaMiddleware from 'redux-saga'
+import rootSagas from './saga'
 
 const ReduxSaga = createSagaMiddleware()
 
@@ -11,6 +12,8 @@ const middlewares = [ReduxThunk, ReduxSaga]
 const composeEnhancers = compose(applyMiddleware(...middlewares))
 
 const store = createStore(combineReducers(rootReducer), composeEnhancers)
+
+ReduxSaga.run(rootSagas)
 
 export default store
 
