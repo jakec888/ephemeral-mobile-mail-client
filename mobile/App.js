@@ -4,9 +4,10 @@ import { FontAwesome } from '@expo/vector-icons'
 import { Asset } from 'expo-asset'
 import * as Font from 'expo-font'
 import { Image } from 'react-native'
-import { Provider } from 'react-redux'
+// import { Provider } from 'react-redux'
+import Root from './Root'
 
-import store from './redux/store'
+// import store from './redux/store'
 
 import AppNavigation from './navigation/AppNavigation'
 
@@ -57,9 +58,11 @@ export default class AppContainer extends Component {
     }
 
     return (
-      <Provider store={store}>
+      <Root>
+      {/* <Provider store={store}> */}
         <AppNavigation />
-      </Provider>
+      {/* </Provider> */}
+      </Root>
     )
   }
 }
