@@ -36,9 +36,24 @@ Static website with serverless backend.
 ### Back End Stack
 
 - [Python](https://www.python.org/)
-- [AWS Chalice](https://chalice.readthedocs.io/en/latest/)
+- [AWS Chalice](https://chalice.readthedocs.io/en/latest/) *(serverless flask-like framework)*
 - [Imbox](https://github.com/martinrusev/imbox)
 - [Sender](https://sender.readthedocs.io/)
+
+# Instructions
+
+## Backend
+
+1. go to backend folder ```cd api```
+2. create virtualenv with python 3 ```virtualenv -p /usr/local/bin/python3 venv```
+3. enter enviroment ```source venv/bin/activate```
+4. run server ```chalice local```
+
+## Frontend
+
+1. go to frontend folder ```cd mobile```
+2. install dependencies ```npm install```
+3. run server ```npm start```
 
 ### Internet
 
