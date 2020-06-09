@@ -37,17 +37,17 @@ custom_headers = {
 def zzzzzz():
     # return {'working': "Hi Jake!"}
     return Response(body={'working': 'Sup Jake!'}, status_code=200, headers=custom_headers)
-# try:
-#     # print("working!")
-#     return Response(body={'working': "Hi Jake!"},
-#                     status_code=200,
-#                     headers=custom_headers)
-# except Exception as error:
-#     # print("Get Emails Error:")
-#     # print(error)
-#     return Response(body={'AppError': str(error)},
-#                     status_code=500,
-#                     headers=custom_headers)
+    # try:
+    #     # print("working!")
+    #     return Response(body={'working': "Hi Jake!"},
+    #                     status_code=200,
+    #                     headers=custom_headers)
+    # except Exception as error:
+    #     # print("Get Emails Error:")
+    #     # print(error)
+    #     return Response(body={'AppError': str(error)},
+    #                     status_code=500,
+    #                     headers=custom_headers)
 
 
 @app.route('/get-emails', methods=['GET'], cors=True)
@@ -64,11 +64,11 @@ def get_emails():
         imap_server = given_params["imap_server"]
         imap_port = given_params["imap_port"]
 
-        print(folder)
-        print(email)
-        print(password)
-        print(imap_server)
-        print(imap_port)
+        # print(folder)
+        # print(email)
+        # print(password)
+        # print(imap_server)
+        # print(imap_port)
 
         with Imbox(hostname=imap_server, port=imap_port, username=email, password=password, ssl=True) as imbox:
             all_inbox_messages = imbox.messages(folder=folder)
@@ -76,7 +76,7 @@ def get_emails():
                 emails = []
                 for uid, message in all_inbox_messages[::-1][0:10]:
 
-                    print(uid)
+                   # print(uid)
 
                     email = {}
 

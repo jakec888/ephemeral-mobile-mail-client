@@ -1,56 +1,56 @@
-import React from 'react'
-import { createStackNavigator } from 'react-navigation'
-import { Platform } from 'react-native'
+import React from 'react';
+import {createStackNavigator} from 'react-navigation';
+import {Platform} from 'react-native';
 
-import { Text } from 'native-base'
+import {Text} from 'native-base';
 
-import TrashScreen from './TrashScreen'
-import ViewEmailScreen from '../ViewEmail/ViewEmailScreen'
+import TrashScreen from './TrashScreen';
+import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
 
-import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure'
+import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
 
-import EmailInfo from '../../components/emailInfo'
+import EmailInfo from '../../components/emailInfo';
 
 const TrashStackNavigator = createStackNavigator({
   Trash: {
     screen: TrashScreen,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       headerTitle: (
         <Text
           style={{
             flex: 1,
             textAlign: 'center',
             fontWeight: 'bold',
-            color: 'white'
-          }}
-        >
+            color: 'white',
+          }}>
           Trash Folders
         </Text>
       ),
       ...Platform.select({
         ios: {
-          headerLeft: <NavigationDrawerStructure navigationProps={navigation} />
+          headerLeft: (
+            <NavigationDrawerStructure navigationProps={navigation} />
+          ),
         },
-        android: {}
+        android: {},
       }),
       headerStyle: {
-        backgroundColor: '#3f51b5'
+        backgroundColor: '#3f51b5',
       },
-      headerTintColor: '#fff'
-    })
+      headerTintColor: '#fff',
+    }),
   },
   View: {
     screen: ViewEmailScreen,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       headerTitle: (
         <Text
           style={{
             flex: 1,
             textAlign: 'center',
             fontWeight: 'bold',
-            color: 'white'
-          }}
-        >
+            color: 'white',
+          }}>
           {navigation.state.params.emailName}
         </Text>
       ),
@@ -64,14 +64,14 @@ const TrashStackNavigator = createStackNavigator({
       ),
       headerBackAllowFontScaling: true,
       headerRightContainerStyle: {
-        marginRight: 10
+        marginRight: 10,
       },
       headerStyle: {
-        backgroundColor: '#3f51b5'
+        backgroundColor: '#3f51b5',
       },
-      headerTintColor: '#fff'
-    })
-  }
-})
+      headerTintColor: '#fff',
+    }),
+  },
+});
 
-export default TrashStackNavigator
+export default TrashStackNavigator;

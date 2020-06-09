@@ -1,50 +1,48 @@
-import React from 'react'
-import { createStackNavigator } from 'react-navigation'
+import React from 'react';
+import {createStackNavigator} from 'react-navigation';
 
-import { Text } from 'native-base'
+import {Text} from 'native-base';
 
-import AllMailScreen from './AllMailScreen'
-import ViewEmailScreen from '../ViewEmail/ViewEmailScreen'
+import AllMailScreen from './AllMailScreen';
+import ViewEmailScreen from '../ViewEmail/ViewEmailScreen';
 
-import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure'
+import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
 
-import EmailInfo from '../../components/emailInfo'
+import EmailInfo from '../../components/emailInfo';
 
 const AllMailStackNavigator = createStackNavigator({
   AllMail: {
     screen: AllMailScreen,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       headerTitle: (
         <Text
           style={{
             flex: 1,
             textAlign: 'center',
             fontWeight: 'bold',
-            color: 'white'
-          }}
-        >
+            color: 'white',
+          }}>
           All Email Folder
         </Text>
       ),
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#3f51b5'
+        backgroundColor: '#3f51b5',
       },
-      headerTintColor: '#fff'
-    })
+      headerTintColor: '#fff',
+    }),
   },
   View: {
     screen: ViewEmailScreen,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       headerTitle: (
         <Text
           style={{
             flex: 1,
             textAlign: 'center',
             fontWeight: 'bold',
-            color: 'white'
-          }}
-        >
+            color: 'white',
+          }}>
           {navigation.state.params.emailName}
         </Text>
       ),
@@ -58,14 +56,14 @@ const AllMailStackNavigator = createStackNavigator({
       ),
       headerBackAllowFontScaling: true,
       headerRightContainerStyle: {
-        marginRight: 10
+        marginRight: 10,
       },
       headerStyle: {
-        backgroundColor: '#3f51b5'
+        backgroundColor: '#3f51b5',
       },
-      headerTintColor: '#fff'
-    })
-  }
-})
+      headerTintColor: '#fff',
+    }),
+  },
+});
 
-export default AllMailStackNavigator
+export default AllMailStackNavigator;

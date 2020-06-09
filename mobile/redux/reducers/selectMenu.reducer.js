@@ -1,14 +1,14 @@
-import { SELECT_MENU } from '../actions/selectMenu.action'
+import {SELECT_MENU} from '../actions/selectMenu.action';
 
 const initialState = {
-  menu: 'Inbox'
-}
+  menu: 'Inbox',
+};
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, {type, payload}) => {
   switch (type) {
     case SELECT_MENU:
-      return { menu: payload }
+      return {menu: payload};
     default:
-      return state
+      return state;
   }
-}
+};

@@ -1,40 +1,41 @@
-import React from 'react'
-import { createStackNavigator } from 'react-navigation'
-import { Platform } from 'react-native'
+import React from 'react';
+import {createStackNavigator} from 'react-navigation';
+import {Platform} from 'react-native';
 
-import { Text } from 'native-base'
+import {Text} from 'native-base';
 
-import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure'
-import ComposeScreen from './ComposeScreen'
+import NavigationDrawerStructure from '../../navigation/NavigationDrawerStructure';
+import ComposeScreen from './ComposeScreen';
 
 const ComposeNavigator = createStackNavigator({
   AllMail: {
     screen: ComposeScreen,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       headerTitle: (
         <Text
           style={{
             flex: 1,
             textAlign: 'center',
             fontWeight: 'bold',
-            color: 'white'
-          }}
-        >
+            color: 'white',
+          }}>
           Compose Email
         </Text>
       ),
       ...Platform.select({
         ios: {
-          headerLeft: <NavigationDrawerStructure navigationProps={navigation} />
+          headerLeft: (
+            <NavigationDrawerStructure navigationProps={navigation} />
+          ),
         },
-        android: {}
+        android: {},
       }),
       headerStyle: {
-        backgroundColor: '#3f51b5'
+        backgroundColor: '#3f51b5',
       },
-      headerTintColor: '#fff'
-    })
-  }
-})
+      headerTintColor: '#fff',
+    }),
+  },
+});
 
-export default ComposeNavigator
+export default ComposeNavigator;

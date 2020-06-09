@@ -1,21 +1,21 @@
-import React from 'react'
-import { TouchableOpacity, Alert } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-import moment from 'moment'
+import React from 'react';
+import {TouchableOpacity, Alert} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
+import moment from 'moment';
 
-const EmailInfo = (props) => {
+const EmailInfo = props => {
   exampleInfo = () => {
-    const emailDate = new Date(props.date)
+    const emailDate = new Date(props.date);
 
-    const calendar = moment(emailDate).format('ll')
+    const calendar = moment(emailDate).format('ll');
 
-    const time = moment(emailDate).format('LT')
+    const time = moment(emailDate).format('LT');
 
     Alert.alert(
       `${props.subject}`,
-      `${props.name} \n ${props.email} \n ${calendar} \n at \n ${time} `
-    )
-  }
+      `${props.name} \n ${props.email} \n ${calendar} \n at \n ${time} `,
+    );
+  };
 
   return (
     <TouchableOpacity onPress={this.exampleInfo}>
@@ -26,7 +26,7 @@ const EmailInfo = (props) => {
         onPress={this.info}
       />
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default EmailInfo
+export default EmailInfo;

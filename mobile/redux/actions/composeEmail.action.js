@@ -1,55 +1,55 @@
-export const COMPOSE_TO = 'COMPOSE_TO'
-export const COMPOSE_SUBJECT = 'COMPOSE_SUBJECT'
-export const COMPOSE_MESSAGE = 'COMPOSE_MESSAGE'
-export const TRASH_MESSAGE = 'TRASH_MESSAGE'
-export const SEND_MESSAGE = 'SEND_MESSAGE'
-export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS'
-export const ERROR_SEND_MESSAGE = 'ERROR_SEND_MESSAGE'
-export const LOADING = 'LOADING'
+export const COMPOSE_TO = 'COMPOSE_TO';
+export const COMPOSE_SUBJECT = 'COMPOSE_SUBJECT';
+export const COMPOSE_MESSAGE = 'COMPOSE_MESSAGE';
+export const TRASH_MESSAGE = 'TRASH_MESSAGE';
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS';
+export const ERROR_SEND_MESSAGE = 'ERROR_SEND_MESSAGE';
+export const LOADING = 'LOADING';
 
-export const updateTo = (toAddress) => {
-  return (dispatch) => {
+export const updateTo = toAddress => {
+  return dispatch => {
     dispatch({
       type: COMPOSE_TO,
-      payload: { to: toAddress }
-    })
-  }
-}
+      payload: {to: toAddress},
+    });
+  };
+};
 
-export const updateSubject = (subject) => {
-  return (dispatch) => {
+export const updateSubject = subject => {
+  return dispatch => {
     dispatch({
       type: COMPOSE_SUBJECT,
-      payload: { subject }
-    })
-  }
-}
+      payload: {subject},
+    });
+  };
+};
 
-export const updateMessage = (message) => {
-  return (dispatch) => {
+export const updateMessage = message => {
+  return dispatch => {
     dispatch({
       type: COMPOSE_MESSAGE,
-      payload: { message }
-    })
-  }
-}
+      payload: {message},
+    });
+  };
+};
 
 export const trashMessage = () => {
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: TRASH_MESSAGE,
       payload: {
         to: '',
         subject: '',
-        message: ''
-      }
-    })
-  }
-}
+        message: '',
+      },
+    });
+  };
+};
 
 export const sendMessage = () => (dispatch, getState) => {
-  const profile = getState().Profile
-  const email = getState().ComposeEmail
+  const profile = getState().Profile;
+  const email = getState().ComposeEmail;
   dispatch({
     type: SEND_MESSAGE,
     payload: {
@@ -61,20 +61,20 @@ export const sendMessage = () => (dispatch, getState) => {
       name: profile.name,
       toAddress: email.to,
       subject: email.subject,
-      bodyPLAIN: email.message
-    }
-  })
-}
+      bodyPLAIN: email.message,
+    },
+  });
+};
 
-export const sendMessageSuccess = (result) => (dispatch) => {
+export const sendMessageSuccess = result => dispatch => {
   dispatch({
     type: SEND_MESSAGE_SUCCESS,
     payload: {
       to: '',
       subject: '',
       message: '',
-      error: ''
-    }
-  })
-  alert('Email Successfully Sent')
-}
+      error: '',
+    },
+  });
+  alert('Email Successfully Sent');
+};

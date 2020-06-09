@@ -1,13 +1,13 @@
-export const SELECT_EMAIL = 'SELECT_EMAIL'
+export const SELECT_EMAIL = 'SELECT_EMAIL';
 
-export const selectEmail = (emailId) => {
+export const selectEmail = emailId => {
   return (dispatch, getState) => {
     const selectedEmail = getState().RetrieveEmails.emails.filter(
-      (email) => email.id === emailId
-    )[0]
+      email => email.id === emailId,
+    )[0];
     dispatch({
       type: SELECT_EMAIL,
-      payload: selectedEmail
-    })
-  }
-}
+      payload: selectedEmail,
+    });
+  };
+};

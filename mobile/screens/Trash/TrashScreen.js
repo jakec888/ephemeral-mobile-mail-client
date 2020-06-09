@@ -9,9 +9,9 @@
   imbox library must be update.
 */
 
-import React, { Component, Fragment } from 'react'
-import { StyleSheet, FlatList } from 'react-native'
-import { connect } from 'react-redux'
+import React, {Component, Fragment} from 'react';
+import {StyleSheet, FlatList} from 'react-native';
+import {connect} from 'react-redux';
 import {
   Container,
   Spinner,
@@ -20,62 +20,72 @@ import {
   Body,
   Right,
   Text,
-  Button
-} from 'native-base'
+  Button,
+} from 'native-base';
 
-import moment from 'moment'
+import moment from 'moment';
 
-import { selectEmail } from '../../redux/actions/selectEmail.action'
-import { retrieveEmails, loadingEmail } from '../../redux/actions/retrieveEmail.actions'
+import {selectEmail} from '../../redux/actions/selectEmail.action';
+import {
+  retrieveEmails,
+  loadingEmail,
+} from '../../redux/actions/retrieveEmail.actions';
 
 export class TrashScreen extends Component {
   componentDidMount = () => {
     if (this.props.validCredentials) {
-      this.onRetrieveTrash()
+      this.onRetrieveTrash();
     } else {
-      this.props.navigation.navigate('Cred')
+      this.props.navigation.navigate('Cred');
     }
   };
 
   onRetrieveTrash = () => {
-    this.props.loadingEmail(true)
-    this.props.retrieveEmails('Trash')
-    this.props.loadingEmail(false)
+    this.props.loadingEmail(true);
+    this.props.retrieveEmails('Trash');
+    this.props.loadingEmail(false);
   };
 
   onRefresh = () => {
-    this.onRetrieveTrash()
+    this.onRetrieveTrash();
   };
 
   onSelectEmail = (emailId, name, email, subject, date) => {
-    this.props.selectEmail(emailId)
+    this.props.selectEmail(emailId);
     this.props.navigation.navigate('View', {
       emailName: name,
       emailEmail: email,
       emailSubject: subject,
-      emailDate: date
-    })
+      emailDate: date,
+    });
   };
 
-  emailView = ({ item }) => {
-    const emailDate = new Date(item.date)
+  emailView = ({item}) => {
+    const emailDate = new Date(item.date);
 
-    const calendar = moment(emailDate).format('ll')
+    const calendar = moment(emailDate).format('ll');
 
-    const time = moment(emailDate).format('LT')
+    const time = moment(emailDate).format('LT');
 
     return (
       <ListItem
         avatar
         onPress={() => {
-          this.onSelectEmail(item.id, item.name, item.email, item.subject, item.date)
-        }}
-      >
+          this.onSelectEmail(
+            item.id,
+            item.name,
+            item.email,
+            item.subject,
+            item.date,
+          );
+        }}>
         <Body>
           <Text style={styles.hOneStyle}>{item.name}</Text>
           <Text style={styles.hTwoStyle}>{item.subject}</Text>
           <Text note>
-            {item.body_plain ? ' — ' + item.body_plain.substring(0, 50) + '...' : false}
+            {item.body_plain
+              ? ' — ' + item.body_plain.substring(0, 50) + '...'
+              : false}
           </Text>
         </Body>
         <Right style={styles.dateStyle}>
@@ -84,10 +94,10 @@ export class TrashScreen extends Component {
           <Text note>{time}</Text>
         </Right>
       </ListItem>
-    )
+    );
   };
 
-  render () {
+  render() {
     return (
       <Container style={styles.container}>
         {this.props.loading ? (
@@ -101,7 +111,7 @@ export class TrashScreen extends Component {
               <FlatList
                 data={this.props.trashEmails}
                 renderItem={this.emailView}
-                keyExtractor={(item) => item.id}
+                keyExtractor={item => item.id}
                 refreshing={this.props.loading}
                 onRefresh={this.onRefresh}
               />
@@ -110,7 +120,9 @@ export class TrashScreen extends Component {
                 {this.props.error ? (
                   <Fragment>
                     <Text>Please Limit To Folders</Text>
-                    <Text style={styles.errorTextBottom}>With Less Than 25 Emails</Text>
+                    <Text style={styles.errorTextBottom}>
+                      With Less Than 25 Emails
+                    </Text>
                   </Fragment>
                 ) : (
                   <Text style={styles.errorTextBottom}>No Emails</Text>
@@ -121,8 +133,7 @@ export class TrashScreen extends Component {
                   bordered
                   rounded
                   style={styles.button}
-                  onPress={this.onRefresh}
-                >
+                  onPress={this.onRefresh}>
                   <Text style={styles.buttonText}>Refresh</Text>
                 </Button>
               </View>
@@ -130,60 +141,57 @@ export class TrashScreen extends Component {
           </Fragment>
         )}
       </Container>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   spinnerContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   hOneStyle: {
     fontSize: 20,
-    fontWeight: '700'
+    fontWeight: '700',
   },
   hTwoStyle: {
     fontSize: 15,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   dateStyle: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   buttonContainer: {
-    margin: '5%'
+    margin: '5%',
   },
   button: {
     borderColor: '#3f51b5',
     color: '#3f51b5',
     alignSelf: 'center',
-    width: '50%'
+    width: '50%',
   },
   buttonText: {
-    color: '#3f51b5'
-  }
-})
+    color: '#3f51b5',
+  },
+});
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   validCredentials: state.Profile.validCredentials,
   trashEmails: state.RetrieveEmails.emails,
   loading: state.RetrieveEmails.loading,
-  error: state.RetrieveEmails.error
-})
+  error: state.RetrieveEmails.error,
+});
 
 const mapDispatchToProps = {
   selectEmail: selectEmail,
   retrieveEmails: retrieveEmails,
-  loadingEmail: loadingEmail
-}
+  loadingEmail: loadingEmail,
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TrashScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(TrashScreen);

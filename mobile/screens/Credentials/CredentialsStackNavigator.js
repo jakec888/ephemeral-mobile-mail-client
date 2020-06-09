@@ -1,32 +1,31 @@
-import React from 'react'
-import { createStackNavigator } from 'react-navigation'
+import React from 'react';
+import {createStackNavigator} from 'react-navigation';
 
-import { Text } from 'native-base'
+import {Text} from 'native-base';
 
-import CredentialsScreen from './CredentialsScreen'
+import CredentialsScreen from './CredentialsScreen';
 
 const CredentialsStackNavigator = createStackNavigator({
   AllMail: {
     screen: CredentialsScreen,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ({navigation}) => ({
       headerTitle: (
         <Text
           style={{
             flex: 1,
             textAlign: 'center',
             fontWeight: 'bold',
-            color: 'white'
-          }}
-        >
+            color: 'white',
+          }}>
           Login
         </Text>
       ),
       headerStyle: {
-        backgroundColor: '#3f51b5'
+        backgroundColor: '#3f51b5',
       },
-      headerTintColor: '#fff'
-    })
-  }
-})
+      headerTintColor: '#fff',
+    }),
+  },
+});
 
-export default CredentialsStackNavigator
+export default CredentialsStackNavigator;
