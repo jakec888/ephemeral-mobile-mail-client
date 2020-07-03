@@ -68,9 +68,6 @@ export class CredentialsScreen extends Component {
       <Container>
         <Content style={styles.container}>
           <Form>
-            <View>
-              <Text>v5.0.2</Text>
-            </View>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>Name</Label>
               <Input autoCapitalize="none" onChangeText={this.onChangeName} />
