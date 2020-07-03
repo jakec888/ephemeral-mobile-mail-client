@@ -21,7 +21,7 @@
     },
     "android": {
       "package": "com.jakec888.ephemeral_mobile_mail_client_android",
-      "versionCode": 4,
+      "versionCode": 5.0,
       "permissions": [],
       "icon": "./assets/icon.png"
     }
