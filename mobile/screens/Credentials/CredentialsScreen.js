@@ -69,7 +69,7 @@ export class CredentialsScreen extends Component {
         <Content style={styles.container}>
           <Form>
             <View>
-              <Text>v5.0.1</Text>
+              <Text>v5.0.2</Text>
             </View>
             <Item floatingLabel style={styles.input}>
               <Label style={styles.label}>Name</Label>
