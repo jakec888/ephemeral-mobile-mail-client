@@ -3,11 +3,7 @@
     "name": "Ephemeral Mobile Mail Client",
     "slug": "mobile",
     "privacy": "public",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,15 +15,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "package": "com.jakec888.ephemeral_mobile_mail_client_android",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": [],
       "icon": "./assets/icon.png"
     }
