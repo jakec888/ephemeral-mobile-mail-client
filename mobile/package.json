@@ -20,11 +20,11 @@
     "moment": "^2.24.0",
     "moxios": "^0.4.0",
     "native-base": "^2.12.1",
-    "react": "16.11.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.0.tar.gz",
+    "react": "^16.13.1",
+    "react-native": "^0.62.2",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-screens": "~2.9.0",
-    "react-native-web": "~0.11.7",
+    "react-native-web": "^0.13.1",
     "react-navigation": "^3.11.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.4",
@@ -47,7 +47,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-standard": "^4.0.1",
     "expo": "^38.0.8",
-    "react-dom": "16.11.0"
+    "react-dom": "^16.13.1"
   },
   "private": true
 }
